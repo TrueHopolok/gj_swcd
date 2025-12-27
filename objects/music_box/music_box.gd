@@ -11,10 +11,10 @@ var is_held: bool = false
 
 func _process(delta: float) -> void:
 	if is_held:
-		GlobalVariables.music_box += delta * 3.0
-	var box: float = float(GlobalVariables.music_box)
+		Global.music_box_rotating_power += delta * 3.0
+	var box: float = float(Global.music_box_rotating_power)
 	box = maxf(box - delta, 0.0)
-	GlobalVariables.music_box = box
+	Global.music_box_rotating_power = box
 
 	if box <= SILENT_AT:
 		set_music_speed(MIN_SPEED)
