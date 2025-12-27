@@ -22,8 +22,7 @@ func _process(delta: float) -> void:
 		#if _current_value / gm.config.musicbox_silent_threshold < randf():
 			#gm.lose()
 	elif _current_value <= gm.config.musicbox_slowing_threshold:
-		var _pitch_error: float = 1.0 if _pitch_error_positive else -1.0
-		_pitch_error = (_current_value - gm.config.musicbox_slowing_threshold) * (-0.4 * _pitch_error) / (gm.config.musicbox_slowing_threshold - gm.config.musicbox_silent_threshold)
+		var _pitch_error: float = (_current_value - gm.config.musicbox_slowing_threshold) * 0.4 / (gm.config.musicbox_slowing_threshold - gm.config.musicbox_silent_threshold)
 		music.pitch_scale = 1.0 + _pitch_error
 		music.volume_linear = 1.0
 	else:
