@@ -4,11 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://cetrultfogrt8" path="res://objects/oven/oven.tscn" id="2_u7oy6"]
 [ext_resource type="PackedScene" uid="uid://cy0ylgn52iyv8" path="res://objects/wordle/wordle.tscn" id="3_xfbbw"]
 
-[node name="RightRoom" type="Node2D"]
+[node name="RightRoom" type="Node2D" node_paths=PackedStringArray("wordle")]
 script = ExtResource("1_ueykt")
+wordle = NodePath("Wordle")
 
 [node name="Oven" parent="." instance=ExtResource("2_u7oy6")]
-position = Vector2(248, 120)
+position = Vector2(256, 128)
 
 [node name="Wordle" parent="." instance=ExtResource("3_xfbbw")]
 position = Vector2(214, 256)

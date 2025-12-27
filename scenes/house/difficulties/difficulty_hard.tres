@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DifficultyConfig" load_steps=2 format=3 uid="uid://b6r2x803wemtn"]
+
+[ext_resource type="Script" uid="uid://itxr78oqj8y1" path="res://scenes/house/difficulties/difficulty_config.gd" id="1_4l0pr"]
+
+[resource]
+script = ExtResource("1_4l0pr")
+oven_cooling_speed = 10.0
+oven_heating_per_log = 0.0
+metadata/_custom_type_script = "uid://itxr78oqj8y1"

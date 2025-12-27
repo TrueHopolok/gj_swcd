@@ -21,7 +21,7 @@ buses/default_bus_layout=""
 
 [autoload]
 
-Global="*res://scenes/house/global_variables.gd"
+Global="*res://scenes/house/difficulties/difficulty_constants.gd"
 
 [display]
 
