@@ -18,8 +18,7 @@ Animations / images:
 func _process(delta: float) -> void:
 	gm.heat -= delta * gm.config.oven_cooling_speed
 	if gm.heat <= 0:
-		# gm.lose()
-		pass
+		gm.lose()
 
 
 func _on_oven_pressed() -> void:

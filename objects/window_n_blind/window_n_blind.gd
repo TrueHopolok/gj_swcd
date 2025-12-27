@@ -37,11 +37,8 @@ func _on_rest_end() -> void:
 
 func _on_attack_end() -> void:
 	if _attacking:
-		#print("killed")
-		# TODO: gm.lose()
-		pass
+		gm.lose()
 	else:
-		#print("defended")
 		_rest_timer.start(randf_range(gm.config.window_min_rest_time, gm.config.window_max_rest_time))
 
 

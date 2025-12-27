@@ -16,6 +16,16 @@ static func get_instance() -> GameManager:
 	return Engine.get_main_loop().get_first_node_in_group("GameManager")
 
 
+func win() -> void:
+	get_tree().reload_current_scene()
+	# TODO: switch to win screen
+
+
+func lose() -> void:
+	get_tree().reload_current_scene()
+	# TODO: switch to lose screen
+
+
 func _ready() -> void:
 	%TransitionRect.color.a = 1.0
 	$RightRoom.enter()

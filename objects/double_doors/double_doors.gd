@@ -39,10 +39,8 @@ func _on_rest_end() -> void:
 func _on_attack_end() -> void:
 	if (_attacking_left && _defending_left) || (!_attacking_left && !_defending_left):
 		_rest_timer.start(randf_range(gm.config.doors_min_rest_time, gm.config.doors_max_rest_time))
-		pass
 	else:
-		# TODO: gm.lose()
-		pass
+		gm.lose()
 
 
 func _on_left_door_pressed() -> void:

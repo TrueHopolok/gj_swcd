@@ -9,11 +9,10 @@ script = ExtResource("1_qhv3d")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_nnujl")
 autoplay = true
-bus = &"MusicBox"
 
 [node name="Button" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_right = 64.0
+offset_bottom = 64.0
 text = "SMASH ME"
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
