@@ -14,19 +14,23 @@ func _ready() -> void:
 
 
 func _on_rest_end() -> void:
+	print("attacking")
 	_attacking = true
 	_attack_timer.start(gm.config.window_attack_time)
 
 
 func _on_attack_end() -> void:
 	if _attacking:
+		print("killed")
 		# TODO: gm.lose()
 		pass
-	_rest_timer.start(randf_range(gm.config.window_min_rest_time, gm.config.window_max_rest_time))
+	else:
+		print("defended")
+		_rest_timer.start(randf_range(gm.config.window_min_rest_time, gm.config.window_max_rest_time))
 
 
-func _process(_delta: float) -> void:
-	if _attacking && _blind_button.pressed:
+func _on_blind_press() -> void:
+	if _attacking:
 		_attack_timer.stop()
 		_attacking = false
 		_on_attack_end()

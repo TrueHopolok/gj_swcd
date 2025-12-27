@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://di6ecsgcyv5nr"]
+[gd_scene load_steps=4 format=3 uid="uid://di6ecsgcyv5nr"]
 
 [ext_resource type="Script" uid="uid://bsqwlg5vc44us" path="res://scenes/house/room_switch.gd" id="1_tpj5w"]
 [ext_resource type="PackedScene" uid="uid://bevslg0d78r02" path="res://objects/log/log.tscn" id="2_vekno"]
+[ext_resource type="PackedScene" uid="uid://ctef5p8q83n01" path="res://objects/window_n_blind/window_n_blind.tscn" id="3_ojayl"]
 
 [node name="LeftRoom" type="Node2D"]
 script = ExtResource("1_tpj5w")
 
 [node name="Log" parent="." instance=ExtResource("2_vekno")]
 position = Vector2(256, 128)
+
+[node name="WindowNBlind" parent="." instance=ExtResource("3_ojayl")]

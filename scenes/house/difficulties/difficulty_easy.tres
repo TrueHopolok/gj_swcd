@@ -7,4 +7,7 @@ script = ExtResource("1_dy88b")
 oven_cooling_speed = 0.0
 oven_heating_per_log = 0.0
 wordle_chance = null
+window_start_time = 1.0
+window_min_rest_time = 1.0
+window_max_rest_time = 1.2
 metadata/_custom_type_script = "uid://itxr78oqj8y1"

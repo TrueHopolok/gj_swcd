@@ -9,7 +9,7 @@ extends Node2D
 
 var heat: float = 100.0
 var has_log: bool = false
-var wordle_chance: float = 0.5
+var wordle_chance: float = 0.0
 
 
 static func get_instance() -> GameManager:

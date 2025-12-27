@@ -19,6 +19,7 @@ one_shot = true
 [node name="StartTimer" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="pressed" from="BlindButton" to="." method="_on_blind_press"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_end"]
 [connection signal="timeout" from="RestTimer" to="." method="_on_rest_end"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_attack_end"]

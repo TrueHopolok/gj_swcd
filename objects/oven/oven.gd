@@ -9,7 +9,6 @@ func _process(delta: float) -> void:
 	if gm.heat <= 0:
 		# gm.lose()
 		pass
-	print(gm.heat)
 
 
 func _on_oven_pressed() -> void:
