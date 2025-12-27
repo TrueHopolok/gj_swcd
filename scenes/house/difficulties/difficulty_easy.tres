@@ -4,10 +4,16 @@
 
 [resource]
 script = ExtResource("1_dy88b")
-oven_cooling_speed = 2.0
-oven_heating_per_log = 60.0
-musicbox_unwind_speed = 2.25
-window_start_time = 10.0
-window_max_rest_time = 30.0
-doors_start_time = 20.0
+oven_cooling_speed = 2.5
+oven_heating_per_log = 50.0
+musicbox_wind_speed = 3.0
+musicbox_unwind_speed = 2.0
+musicbox_slowing_threshold = 30.0
+musicbox_max_threshold = 50.0
+window_start_time = 5.0
+window_min_rest_time = 0.0
+window_max_rest_time = 2.5
+doors_start_time = 0.0
+doors_max_rest_time = 10.0
+doors_attack_time = 5.0
 metadata/_custom_type_script = "uid://itxr78oqj8y1"
