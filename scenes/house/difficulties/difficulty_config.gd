@@ -20,7 +20,12 @@ extends Resource
 
 ## MusicBox difficulty related variables.
 @export_group("MusicBox")
-@export var SLOW_WINDOW: float = 20.0      
+## Adds delta * mult to the timer
+@export var WINDUP_MULTIPLIER = 3.0
+## Max value for the timer can reach
+@export var MAX_VALUE: float = 40.0
+## There is a big chance that you should not touch this 
+@export var SLOW_WINDOW: float = 20.0    
 @export var SILENT_AT: float = 10.0  
 
 

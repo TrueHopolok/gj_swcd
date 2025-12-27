@@ -6,16 +6,20 @@ extends Node2D
 @onready var config : DifficultyConfig = GameManager.get_instance().config
 
 @onready var SLOW_WINDOW: float = config.SLOW_WINDOW
-@onready var SILENT_AT: float = config.SILENT_AT        
+@onready var SILENT_AT: float = config.SILENT_AT   
+@onready var MAX_VALUE: float = config.MAX_VALUE 
+@onready var WINDUP_MULTIPLIER = config.WINDUP_MULTIPLIER
 const MIN_SPEED: float = 0.05
 const MIN_VOLUME: float = 0.25      
 var is_held: bool = false
 
 func _process(delta: float) -> void:
-	if is_held:
+	print(Global.music_box_rotating_power)
+	if is_held and Global.music_box_rotating_power <= MAX_VALUE:
 		Global.music_box_rotating_power += delta * 3.0
+		
 	var box: float = float(Global.music_box_rotating_power)
-	box = maxf(box - delta, 0.0)
+	box = maxf(box - delta, SILENT_AT)
 	Global.music_box_rotating_power = box
 
 	if box <= SILENT_AT:
