@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://2c7o16jntr3o"]
+
+[ext_resource type="ButtonGroup" uid="uid://dg5wecnyarym2" path="res://objects/double_doors/doors_group.tres" id="1_3am3k"]
+[ext_resource type="Script" uid="uid://benyjuon1ddpd" path="res://objects/double_doors/double_doors.gd" id="1_pinfa"]
+
+[node name="DoubleDoors" type="Node2D"]
+script = ExtResource("1_pinfa")
+
+[node name="LeftDoor" type="Button" parent="."]
+offset_right = 128.0
+offset_bottom = 64.0
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("1_3am3k")
+text = "Left"
+
+[node name="RightDoor" type="Button" parent="."]
+offset_left = 192.0
+offset_right = 320.0
+offset_bottom = 64.0
+toggle_mode = true
+button_group = ExtResource("1_3am3k")
+text = "Right"
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="RestTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="StartTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="pressed" from="LeftDoor" to="." method="_on_left_door_pressed"]
+[connection signal="pressed" from="RightDoor" to="." method="_on_right_door_pressed"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_end"]
+[connection signal="timeout" from="RestTimer" to="." method="_on_rest_end"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_end"]

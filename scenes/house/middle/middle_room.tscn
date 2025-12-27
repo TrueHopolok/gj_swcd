@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://k3ecea1f6h5y"]
+[gd_scene load_steps=4 format=3 uid="uid://k3ecea1f6h5y"]
 
 [ext_resource type="Script" uid="uid://bsqwlg5vc44us" path="res://scenes/house/room_switch.gd" id="1_u75oo"]
 [ext_resource type="PackedScene" uid="uid://bjjnjovlm75xk" path="res://objects/music_box/music_box.tscn" id="2_qlm3v"]
+[ext_resource type="PackedScene" uid="uid://2c7o16jntr3o" path="res://objects/double_doors/double_doors.tscn" id="3_wq75q"]
 
 [node name="MiddleRoom" type="Node2D"]
 script = ExtResource("1_u75oo")
 
 [node name="MusicBox" parent="." instance=ExtResource("2_qlm3v")]
 position = Vector2(256, 128)
+
+[node name="DoubleDoors" parent="." instance=ExtResource("3_wq75q")]
+position = Vector2(160, 256)

@@ -33,3 +33,15 @@ extends Resource
 @export_range(0.0, 100.0, 0.01) var window_max_rest_time: float = 20.0
 ## Time before kill / to defend.
 @export_range(0.0, 100.0, 0.01) var window_attack_time: float = 10.0
+
+
+## DoubleDoors difficulty related variables.
+@export_group("DoubleDoors")
+## Starting rest time before actiavtes. Activation calls rest first.
+@export_range(0.0, 100.0, 0.01) var doors_start_time: float = 60.0
+## Min rest time between attacks.
+@export_range(0.0, 100.0, 0.01) var doors_min_rest_time: float = 10.0
+## Max rest time between attacks.
+@export_range(0.0, 100.0, 0.01) var doors_max_rest_time: float = 20.0
+## Time before kill / to defend.
+@export_range(0.0, 100.0, 0.01) var doors_attack_time: float = 10.0
