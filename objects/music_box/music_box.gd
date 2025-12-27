@@ -9,18 +9,18 @@ extends Node2D
 @onready var SILENT_AT: float = config.SILENT_AT   
 @onready var MAX_VALUE: float = config.MAX_VALUE 
 @onready var WINDUP_MULTIPLIER = config.WINDUP_MULTIPLIER
+@onready var timer_value: float = config.DEFAULT_TIMER_VALUE
 const MIN_SPEED: float = 0.05
 const MIN_VOLUME: float = 0.25      
 var is_held: bool = false
-
 func _process(delta: float) -> void:
-	print(Global.music_box_rotating_power)
-	if is_held and Global.music_box_rotating_power <= MAX_VALUE:
-		Global.music_box_rotating_power += delta * 3.0
+	print(timer_value)
+	if is_held and timer_value <= MAX_VALUE:
+		timer_value += delta * 3.0
 		
-	var box: float = float(Global.music_box_rotating_power)
+	var box: float = float(timer_value)
 	box = maxf(box - delta, SILENT_AT)
-	Global.music_box_rotating_power = box
+	timer_value = box
 
 	if box <= SILENT_AT:
 		set_music_speed(MIN_SPEED)
