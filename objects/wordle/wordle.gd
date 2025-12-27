@@ -15,17 +15,18 @@ Animations / images todo:
 
 var is_locked: bool = false
 
-@onready var letter_1: Button = $HBoxContainer/Letter1
-@onready var letter_2: Button = $HBoxContainer/Letter2
-@onready var letter_3: Button = $HBoxContainer/Letter3
-@onready var letter_4: Button = $HBoxContainer/Letter4
+@onready var _letter_1: Button = $VBoxContainer/HBoxContainer/Letter1
+@onready var _letter_2: Button = $VBoxContainer/HBoxContainer/Letter2
+@onready var _letter_3: Button = $VBoxContainer/HBoxContainer/Letter3
+@onready var _letter_4: Button = $VBoxContainer/HBoxContainer/Letter4
+@onready var _word: Label = $VBoxContainer/Word
 
-const alphabet := [
+const _alphabet := [
 	"A","B","C","D","E","F","G","H","I","J","K","L","M",
 	"N","O","P","Q","R","S","T","U","V","W","X","Y","Z"
 ]
 
-var words = [
+var _words = [
   ["NOEL", 0],
   ["YEAR", 0],
   ["TIME", 2],
@@ -47,36 +48,37 @@ var words = [
   ["VOWS", 0],
   ["PLAN", 3]
 ]
-var box: Array = [["HEGR", 0], ["EGR", 0], ["LPO", 0], ["POG", 0]]
-var answer: String
+var _box: Array = [["HEGR", 0], ["EGR", 0], ["LPO", 0], ["POG", 0]]
+var _answer: String
 
 
 func _activate() -> void:
-	letter_1.disabled = false
-	letter_2.disabled = false
-	letter_3.disabled = false
-	letter_4.disabled = false
+	_letter_1.disabled = false
+	_letter_2.disabled = false
+	_letter_3.disabled = false
+	_letter_4.disabled = false
 	
 func _deactivate() -> void:
-	letter_1.disabled = true
-	letter_2.disabled = true
-	letter_3.disabled = true
-	letter_4.disabled = true
+	_letter_1.disabled = true
+	_letter_2.disabled = true
+	_letter_3.disabled = true
+	_letter_4.disabled = true
 
 func generate_new_word() -> void:
 	_activate()
 	is_locked = true
 	
-	var rng: int = randi() % len(words)
-	answer = words[rng][0]
-	var unique_index: int = words[rng][1]
+	var rng: int = randi() % len(_words)
+	_answer = _words[rng][0]
+	_word.text = _answer
+	var unique_index: int = _words[rng][1]
 	for i in range(4):
 		var opts: Array[String] = []
-		var correct: String = answer[i]
+		var correct: String = _answer[i]
 		opts.append(correct)
 
 		while opts.size() < 4:
-			var c: String = alphabet[randi() % alphabet.size()]
+			var c: String = _alphabet[randi() % _alphabet.size()]
 			if not opts.has(c):
 				opts.append(c)
 
@@ -86,55 +88,55 @@ func generate_new_word() -> void:
 		for c in opts:
 			opt_str += c
 
-		box[i][0] = opt_str
-		box[i][1] = randi() % len(opt_str)
-	letter_1.disabled = false
-	letter_2.disabled = false
-	letter_3.disabled = false
-	letter_4.disabled = false
+		_box[i][0] = opt_str
+		_box[i][1] = randi() % len(opt_str)
+	_letter_1.disabled = false
+	_letter_2.disabled = false
+	_letter_3.disabled = false
+	_letter_4.disabled = false
 	if unique_index == 0:
-		letter_1.disabled = true
-		letter_1.text = answer[0]
-		box[0][0][box[0][1]] = answer[0]
+		_letter_1.disabled = true
+		_letter_1.text = _answer[0]
+		_box[0][0][_box[0][1]] = _answer[0]
 	elif unique_index == 1:
-		letter_2.disabled = true
-		letter_2.text = answer[1]
-		box[1][0][box[1][1]] = answer[1]
+		_letter_2.disabled = true
+		_letter_2.text = _answer[1]
+		_box[1][0][_box[1][1]] = _answer[1]
 	elif unique_index == 2:
-		letter_3.disabled = true
-		letter_3.text = answer[2]
-		box[2][0][box[2][1]] = answer[2]
+		_letter_3.disabled = true
+		_letter_3.text = _answer[2]
+		_box[2][0][_box[2][1]] = _answer[2]
 	elif unique_index == 3:
-		letter_4.disabled = true
-		letter_4.text = answer[3]
-		box[3][0][box[3][1]] = answer[3]
+		_letter_4.disabled = true
+		_letter_4.text = _answer[3]
+		_box[3][0][_box[3][1]] = _answer[3]
 	
 
 func validate() -> void:
-	if box[0][0][box[0][1]]+box[1][0][box[1][1]]+box[2][0][box[2][1]]+box[3][0][box[3][1]] == answer:
+	if _box[0][0][_box[0][1]]+_box[1][0][_box[1][1]]+_box[2][0][_box[2][1]]+_box[3][0][_box[3][1]] == _answer:
 		is_locked = false
 		_deactivate()
 
 
 func _on_letter_1_pressed() -> void:
-	box[0][1] = (box[0][1] + 1)  % len(box[0][0])
-	letter_1.text = box[0][0][box[0][1]]
+	_box[0][1] = (_box[0][1] + 1)  % len(_box[0][0])
+	_letter_1.text = _box[0][0][_box[0][1]]
 	validate()
 
 
 func _on_letter_2_pressed() -> void:
-	box[1][1] = (box[1][1] + 1)  % len(box[1][0])
-	letter_2.text = box[1][0][box[1][1]]
+	_box[1][1] = (_box[1][1] + 1)  % len(_box[1][0])
+	_letter_2.text = _box[1][0][_box[1][1]]
 	validate()
 
 
 func _on_letter_3_pressed() -> void:
-	box[2][1] = (box[2][1] + 1)  % len(box[2][0])
-	letter_3.text = box[2][0][box[2][1]]
+	_box[2][1] = (_box[2][1] + 1)  % len(_box[2][0])
+	_letter_3.text = _box[2][0][_box[2][1]]
 	validate()
 
 
 func _on_letter_4_pressed() -> void:
-	box[3][1] = (box[3][1] + 1)  % len(box[3][0])
-	letter_4.text = box[3][0][box[3][1]]
+	_box[3][1] = (_box[3][1] + 1)  % len(_box[3][0])
+	_letter_4.text = _box[3][0][_box[3][1]]
 	validate()

@@ -5,35 +5,44 @@
 [node name="Wordle" type="Node2D"]
 script = ExtResource("1_aa0vr")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Letter1" type="Button" parent="HBoxContainer"]
+[node name="Word" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "HELP"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Letter1" type="Button" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 disabled = true
 text = "H"
 
-[node name="Letter2" type="Button" parent="HBoxContainer"]
+[node name="Letter2" type="Button" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 disabled = true
 text = "E"
 
-[node name="Letter3" type="Button" parent="HBoxContainer"]
+[node name="Letter3" type="Button" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 disabled = true
 text = "L"
 
-[node name="Letter4" type="Button" parent="HBoxContainer"]
+[node name="Letter4" type="Button" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 disabled = true
 text = "P"
 
-[connection signal="pressed" from="HBoxContainer/Letter1" to="." method="_on_letter_1_pressed"]
-[connection signal="pressed" from="HBoxContainer/Letter2" to="." method="_on_letter_2_pressed"]
-[connection signal="pressed" from="HBoxContainer/Letter3" to="." method="_on_letter_3_pressed"]
-[connection signal="pressed" from="HBoxContainer/Letter4" to="." method="_on_letter_4_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Letter1" to="." method="_on_letter_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Letter2" to="." method="_on_letter_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Letter3" to="." method="_on_letter_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Letter4" to="." method="_on_letter_4_pressed"]
