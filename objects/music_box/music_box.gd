@@ -1,48 +1,40 @@
 extends Node2D
 
+
 @onready var music: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var button: Button = $Button
+@onready var gm: GameManager = GameManager.get_instance()
+@onready var _current_value: float = gm.config.musicbox_starting_value
+var _is_held: bool = false
+var _pitch_error_positive: float
 
-@onready var config : DifficultyConfig = GameManager.get_instance().config
-
-@onready var SLOW_WINDOW: float = config.SLOW_WINDOW
-@onready var SILENT_AT: float = config.SILENT_AT   
-@onready var MAX_VALUE: float = config.MAX_VALUE 
-@onready var WINDUP_MULTIPLIER = config.WINDUP_MULTIPLIER
-@onready var timer_value: float = config.DEFAULT_TIMER_VALUE
-
-const MIN_SPEED: float = 0.05
-const MIN_VOLUME: float = 0.25      
-var is_held: bool = false
 func _process(delta: float) -> void:
-	print(timer_value)
-	if is_held and timer_value <= MAX_VALUE:
-		timer_value += delta * 3.0
-		
-	var box: float = float(timer_value)
-	box = maxf(box - delta, SILENT_AT)
-	timer_value = box
-
-	if box <= SILENT_AT:
-		set_music_speed(MIN_SPEED)
-		music.volume_linear = 0.0
-	elif box <= SLOW_WINDOW:
-		var u: float = clampf((box - SILENT_AT) / (SLOW_WINDOW - SILENT_AT), 0.0, 1.0)
-		u = u * u * (3.0 - 2.0 * u)
-		var speed: float = lerpf(MIN_SPEED, 1.0, u)
-		var vol: float = lerpf(MIN_VOLUME, 1.0, u)
-		set_music_speed(speed)
-		music.volume_linear = vol
+	if _is_held:
+		if _current_value <= gm.config.musicbox_max_threshold: 
+			_current_value = min(_current_value + delta * gm.config.musicbox_wind_speed, gm.config.musicbox_max_threshold)
 	else:
-		set_music_speed(1.0)
+		_current_value = max(_current_value - delta * gm.config.musicbox_unwind_speed, 0.0)
+
+	if _current_value <= 0.0:
+		gm.lose()
+	elif _current_value <= gm.config.musicbox_silent_threshold:
+		music.volume_linear = 0.0
+		#if _current_value / gm.config.musicbox_silent_threshold < randf():
+			#gm.lose()
+	elif _current_value <= gm.config.musicbox_slowing_threshold:
+		var _pitch_error: float = 1.0 if _pitch_error_positive else -1.0
+		_pitch_error = (_current_value - gm.config.musicbox_slowing_threshold) * (-0.4 * _pitch_error) / (gm.config.musicbox_slowing_threshold - gm.config.musicbox_silent_threshold)
+		music.pitch_scale = 1.0 + _pitch_error
+		music.volume_linear = 1.0
+	else:
+		_pitch_error_positive = !_pitch_error_positive
+		music.pitch_scale = 1.0
 		music.volume_linear = 1.0
 
 
-func set_music_speed(speed: float) -> void:
-	music.pitch_scale = clampf(speed, MIN_SPEED, 4.0)
+func _on_wind_stop() -> void:
+	_is_held = false
 
-func _on_button_button_up() -> void:
-	is_held = false
 
-func _on_button_button_down() -> void:
-	is_held = true
+func _on_wind_start() -> void:
+	_is_held = true

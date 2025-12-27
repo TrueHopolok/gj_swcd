@@ -20,15 +20,21 @@ extends Resource
 
 ## MusicBox difficulty related variables.
 @export_group("MusicBox")
-## Adds delta * mult to the timer
-@export var WINDUP_MULTIPLIER = 3.0
-## Max value for the timer to reach
-@export var MAX_VALUE: float = 40.0
-## Self-explanatory
-@export var DEFAULT_TIMER_VALUE = 30.0
-## There is a big chance that you should not touch this 
-@export var SLOW_WINDOW: float = 20.0    
-@export var SILENT_AT: float = 10.0  
+
+@export_subgroup("WindNunwind")
+## Units/sec how fast music box is WIND.
+@export_range(0.0, 100.0) var musicbox_wind_speed: float = 18.0
+## Units/sec how fast music box is UNWIND.
+@export_range(0.0, 100.0) var musicbox_unwind_speed: float = 9.0
+## Starting value of the music box.
+@export_range(20.0, 100.0) var musicbox_starting_value: float = 50.0
+
+@export_subgroup("Threshold")
+@export_range(0.0, 100.0) var musicbox_slowing_threshold: float = 40.0
+## Units till music box is silent. Gameover may be caused now, but it is gurantee at 0.
+@export_range(0.0, 100.0) var musicbox_silent_threshold: float = 10.0
+## Max units that music box can reach.
+@export_range(50.0, 100.0) var musicbox_max_threshold: float = 100.0
 
 
 ## WindowNBlind difficulty related variables.
