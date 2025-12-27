@@ -20,7 +20,8 @@ extends Resource
 
 ## MusicBox difficulty related variables.
 @export_group("MusicBox")
-# TODO: export vars related to music box here
+@export var SLOW_WINDOW: float = 20.0      
+@export var SILENT_AT: float = 10.0  
 
 
 ## WindowNBlind difficulty related variables.

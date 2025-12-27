@@ -3,8 +3,10 @@ extends Node2D
 @onready var music: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var button: Button = $Button
 
-const SLOW_WINDOW: float = 20.0      
-const SILENT_AT: float = 10.0        
+@onready var config : DifficultyConfig = GameManager.get_instance().config
+
+@onready var SLOW_WINDOW: float = config.SLOW_WINDOW
+@onready var SILENT_AT: float = config.SILENT_AT        
 const MIN_SPEED: float = 0.05
 const MIN_VOLUME: float = 0.25      
 var is_held: bool = false
