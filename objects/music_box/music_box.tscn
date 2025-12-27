@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://bjjnjovlm75xk"]
 
 [ext_resource type="Script" uid="uid://bg0vvce8ceg2r" path="res://objects/music_box/music_box.gd" id="1_qhv3d"]
-[ext_resource type="AudioStream" uid="uid://8m7smimbnfln" path="res://audio/music/FNAF 2_ The Puppet music box.mp3" id="2_nnujl"]
+[ext_resource type="AudioStream" uid="uid://cishrg4y2acrf" path="res://audio/music/music_box_loop.wav" id="2_qhv3d"]
 
 [node name="MusicBox" type="Node2D"]
 script = ExtResource("1_qhv3d")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_nnujl")
+stream = ExtResource("2_qhv3d")
 autoplay = true
 
 [node name="Button" type="Button" parent="."]
