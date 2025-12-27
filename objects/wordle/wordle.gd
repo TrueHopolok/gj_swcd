@@ -65,7 +65,6 @@ func _deactivate() -> void:
 	_letter_4.disabled = true
 
 func generate_new_word() -> void:
-	_activate()
 	is_locked = true
 	
 	var rng: int = randi() % len(_words)
@@ -90,10 +89,12 @@ func generate_new_word() -> void:
 
 		_box[i][0] = opt_str
 		_box[i][1] = randi() % len(opt_str)
-	_letter_1.disabled = false
-	_letter_2.disabled = false
-	_letter_3.disabled = false
-	_letter_4.disabled = false
+		
+	_letter_1.text = _box[0][0][_box[0][1]]
+	_letter_2.text = _box[1][0][_box[1][1]]
+	_letter_3.text = _box[2][0][_box[2][1]]
+	_letter_4.text = _box[3][0][_box[3][1]]
+	_activate()
 	if unique_index == 0:
 		_letter_1.disabled = true
 		_letter_1.text = _answer[0]
