@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cy0ylgn52iyv8"]
+[gd_scene load_steps=4 format=3 uid="uid://cy0ylgn52iyv8"]
 
 [ext_resource type="Script" uid="uid://q48nbrxc7h7l" path="res://objects/wordle/wordle.gd" id="1_aa0vr"]
+[ext_resource type="AudioStream" uid="uid://dputkmr54iu8w" path="res://audio/sfx/worlde_start.wav" id="2_qwbuv"]
+[ext_resource type="AudioStream" uid="uid://dg55jeuep2eta" path="res://audio/sfx/worlde_click.wav" id="3_xgqnq"]
 
 [node name="Wordle" type="Node2D"]
 script = ExtResource("1_aa0vr")
@@ -41,6 +43,14 @@ custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 disabled = true
 text = "P"
+
+[node name="start" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_qwbuv")
+bus = &"SFX"
+
+[node name="click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_xgqnq")
+bus = &"SFX"
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Letter1" to="." method="_on_letter_1_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Letter2" to="." method="_on_letter_2_pressed"]
