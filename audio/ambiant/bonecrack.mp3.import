@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/bonecrack.mp3-716a045edf6805b085d17e19b1d1959
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4
