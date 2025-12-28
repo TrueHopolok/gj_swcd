@@ -26,7 +26,7 @@ func win() -> void:
 
 
 func lose() -> void:
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://ui/death_screen/death_screen.tscn")
 	# TODO: switch to lose screen
 
 
