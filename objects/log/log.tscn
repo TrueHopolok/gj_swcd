@@ -13,6 +13,7 @@ rotation = 1.5707964
 texture = ExtResource("2_8ssdb")
 
 [node name="Log" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
 offset_left = -24.0
 offset_top = -8.0
 offset_right = 24.0
