@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch8hihk5b80rh"
-path="res://.godot/imported/Oven_idle.png-1e3e24703a43a49ace1aa8ac367a2872.ctex"
+uid="uid://drg4hjb7coqvp"
+path="res://.godot/imported/Oven_hovered.png-a815471678701de515ffea5b37839f9c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/house/Oven_idle.png"
-dest_files=["res://.godot/imported/Oven_idle.png-1e3e24703a43a49ace1aa8ac367a2872.ctex"]
+source_file="res://assets/house/Oven/Oven_hovered.png"
+dest_files=["res://.godot/imported/Oven_hovered.png-a815471678701de515ffea5b37839f9c.ctex"]
 
 [params]
 

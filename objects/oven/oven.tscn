@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cetrultfogrt8"]
 
 [ext_resource type="Script" uid="uid://c51bhyol546hh" path="res://objects/oven/oven.gd" id="1_fak8e"]
-[ext_resource type="Texture2D" uid="uid://drg4hjb7coqvp" path="res://assets/house/Oven_hovered.png" id="2_3ygx8"]
-[ext_resource type="Texture2D" uid="uid://ch8hihk5b80rh" path="res://assets/house/Oven_idle.png" id="3_86xkl"]
+[ext_resource type="Texture2D" uid="uid://drg4hjb7coqvp" path="res://assets/house/Oven/Oven_hovered.png" id="2_3ygx8"]
+[ext_resource type="Texture2D" uid="uid://ch8hihk5b80rh" path="res://assets/house/Oven/Oven_idle.png" id="3_86xkl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_eypp5"]
 animations = [{
