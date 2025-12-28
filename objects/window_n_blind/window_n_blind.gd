@@ -14,7 +14,7 @@ Animations / images todo:
 	- Eyes in the window
 '''
 
-
+@onready var knock: AudioStreamPlayer2D = $Knock
 @onready var gm: GameManager = GameManager.get_instance()
 @onready var gmconfig: DifficultyConfig = GameManager.get_config()
 @onready var _attack_timer: Timer = $AttackTimer
@@ -52,6 +52,7 @@ func _on_start_end(hour: int) -> void:
 func _on_rest_end() -> void:
 	_attacking = true
 	_attack_timer.start(gmconfig.window_attack_time)
+	knock.play(0)
 	print("WINDOW: spawn")
 
 

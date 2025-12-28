@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctef5p8q83n01"]
+[gd_scene load_steps=7 format=3 uid="uid://ctef5p8q83n01"]
 
 [ext_resource type="Script" uid="uid://c3c0pex5p82le" path="res://objects/window_n_blind/window_n_blind.gd" id="1_ounrq"]
 [ext_resource type="Texture2D" uid="uid://be7v7hqw6eq3f" path="res://assets/house/Window/Window_open.png" id="2_kfis8"]
 [ext_resource type="Texture2D" uid="uid://3kngsd4162fa" path="res://assets/house/Window/Window_busy.png" id="2_nihby"]
 [ext_resource type="Texture2D" uid="uid://c4tmp7s7lvw50" path="res://assets/house/Window/Window_closed.png" id="3_4556n"]
+[ext_resource type="AudioStream" uid="uid://vhgtnx50yixe" path="res://audio/sfx/Knock.mp3" id="5_4556n"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d15d4"]
 animations = [{
@@ -54,6 +55,9 @@ one_shot = true
 
 [node name="RestTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Knock" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_4556n")
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_end"]
 [connection signal="timeout" from="RestTimer" to="." method="_on_rest_end"]

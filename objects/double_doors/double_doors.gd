@@ -14,7 +14,7 @@ Animations / images todo:
 	- DEATH?
 '''
 
-
+@onready var steps: AudioStreamPlayer2D = $Steps
 @onready var gm: GameManager = GameManager.get_instance()
 @onready var gmconfig: DifficultyConfig = GameManager.get_config()
 @onready var _attack_timer: Timer 	= $AttackTimer
@@ -40,6 +40,15 @@ func _on_rest_end() -> void:
 	_attacking_left = randi_range(0, 1) == 0
 	_attack_timer.start(gmconfig.doors_attack_time)
 	print("DOUBLE_DOORS: ", "left" if _attacking_left else "right")
+	if _attacking_left:
+		var bus_idx := AudioServer.get_bus_index("SFX_PAN_MAN")
+		var fx := AudioServer.get_bus_effect(bus_idx, 0)
+		fx.pan = -1
+	else:
+		var bus_idx := AudioServer.get_bus_index("SFX_PAN_MAN")
+		var fx := AudioServer.get_bus_effect(bus_idx, 0)
+		fx.pan = 1
+	steps.play(0)
 
 
 func _on_attack_end() -> void:
@@ -47,6 +56,7 @@ func _on_attack_end() -> void:
 		_rest_timer.start(randf_range(gmconfig.doors_min_rest_time, gmconfig.doors_max_rest_time))
 	else:
 		gm.lose()
+	steps.stop()
 
 
 func _on_left_door_pressed() -> void:

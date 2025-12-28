@@ -21,6 +21,8 @@ var is_locked: bool = false
 @onready var _letter_3: Button = $VBoxContainer/HBoxContainer/Letter3
 @onready var _letter_4: Button = $VBoxContainer/HBoxContainer/Letter4
 @onready var _word: Label = $VBoxContainer/Word
+@onready var click: AudioStreamPlayer2D = $click
+@onready var start: AudioStreamPlayer2D = $start
 
 const _alphabet := [
 	"A","B","C","D","E","F","G","H","I","J","K","L","M",
@@ -79,6 +81,7 @@ func _deactivate() -> void:
 
 
 func generate_new_word() -> void:
+	start.play(0)
 	if is_locked: return
 	if _chance < randf(): return
 	
@@ -138,24 +141,28 @@ func validate() -> void:
 
 
 func _on_letter_1_pressed() -> void:
+	click.play()
 	_box[0][1] = (_box[0][1] + 1)  % len(_box[0][0])
 	_letter_1.text = _box[0][0][_box[0][1]]
 	validate()
 
 
 func _on_letter_2_pressed() -> void:
+	click.play()
 	_box[1][1] = (_box[1][1] + 1)  % len(_box[1][0])
 	_letter_2.text = _box[1][0][_box[1][1]]
 	validate()
 
 
 func _on_letter_3_pressed() -> void:
+	click.play()
 	_box[2][1] = (_box[2][1] + 1)  % len(_box[2][0])
 	_letter_3.text = _box[2][0][_box[2][1]]
 	validate()
 
 
 func _on_letter_4_pressed() -> void:
+	click.play()
 	_box[3][1] = (_box[3][1] + 1)  % len(_box[3][0])
 	_letter_4.text = _box[3][0][_box[3][1]]
 	validate()
