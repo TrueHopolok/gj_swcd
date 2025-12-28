@@ -8,18 +8,18 @@
 [node name="RightRoom" type="Node2D" node_paths=PackedStringArray("wordle")]
 script = ExtResource("1_ueykt")
 wordle = NodePath("Wordle")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+scale = Vector2(2, 2.25)
+texture = ExtResource("4_8nip3")
 
 [node name="Oven" parent="." instance=ExtResource("2_u7oy6")]
 
 [node name="Wordle" parent="." instance=ExtResource("3_xfbbw")]
 unique_name_in_owner = true
 position = Vector2(216, 72)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(320, 180)
-scale = Vector2(2, 2.25)
-texture = ExtResource("4_8nip3")
 
 [node name="OvenHint" type="Label" parent="."]
 offset_left = 200.0

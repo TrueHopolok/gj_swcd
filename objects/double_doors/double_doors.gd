@@ -19,6 +19,7 @@ Animations / images todo:
 @onready var gmconfig: DifficultyConfig = GameManager.get_config()
 @onready var _attack_timer: Timer 	= $AttackTimer
 @onready var _rest_timer: Timer 	= $RestTimer
+@onready var _sprite: Sprite2D = $Sprite2D
 var _attacking_left: bool = true
 var _defending_left: bool = true
 
@@ -60,7 +61,9 @@ func _on_attack_end() -> void:
 
 func _on_left_door_pressed() -> void:
 	_defending_left = true
+	_sprite.flip_h = true
 
 
 func _on_right_door_pressed() -> void:
 	_defending_left = false
+	_sprite.flip_h = false

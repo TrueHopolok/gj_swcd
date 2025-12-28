@@ -12,6 +12,7 @@
 [node name="House" type="Node2D" groups=["GameManager"]]
 script = ExtResource("1_wusmn")
 config = ExtResource("2_yj2u4")
+metadata/_edit_lock_ = true
 
 [node name="LeftRoom" parent="." node_paths=PackedStringArray("room_to_the_right") instance=ExtResource("1_44bws")]
 visible = false
@@ -32,15 +33,18 @@ offset_right = 640.0
 offset_bottom = 360.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
+metadata/_edit_lock_ = true
 
 [node name="NightTimer" parent="." instance=ExtResource("6_guua2")]
 
 [node name="Termometr" parent="." instance=ExtResource("7_cr554")]
-offset_top = 296.0
-offset_bottom = 360.0
+offset_left = 8.0
+offset_top = 264.0
+offset_right = 40.0
+offset_bottom = 344.0
 
 [node name="Inventory" parent="." instance=ExtResource("8_yj2u4")]
-offset_left = 560.0
+offset_left = 232.0
 offset_top = 328.0
-offset_right = 560.0
+offset_right = 232.0
 offset_bottom = 328.0

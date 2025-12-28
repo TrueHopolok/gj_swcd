@@ -2,23 +2,32 @@
 
 [ext_resource type="ButtonGroup" uid="uid://dg5wecnyarym2" path="res://objects/double_doors/doors_group.tres" id="1_3am3k"]
 [ext_resource type="Script" uid="uid://benyjuon1ddpd" path="res://objects/double_doors/double_doors.gd" id="1_pinfa"]
+[ext_resource type="Texture2D" uid="uid://jtvohulrxdwc" path="res://assets/house/DoubleDoors/DoubleDoors.png" id="2_mhvgt"]
 [ext_resource type="AudioStream" uid="uid://lh7phqjlef5u" path="res://audio/sfx/Steps.mp3" id="3_mhvgt"]
 
 [node name="DoubleDoors" type="Node2D"]
 script = ExtResource("1_pinfa")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+scale = Vector2(2, 2.25)
+texture = ExtResource("2_mhvgt")
+
 [node name="LeftDoor" type="Button" parent="."]
-offset_right = 128.0
-offset_bottom = 64.0
+offset_left = 56.0
+offset_top = 64.0
+offset_right = 176.0
+offset_bottom = 296.0
 toggle_mode = true
 button_pressed = true
 button_group = ExtResource("1_3am3k")
 text = "Left"
 
 [node name="RightDoor" type="Button" parent="."]
-offset_left = 192.0
-offset_right = 320.0
-offset_bottom = 64.0
+offset_left = 464.0
+offset_top = 64.0
+offset_right = 584.0
+offset_bottom = 296.0
 toggle_mode = true
 button_group = ExtResource("1_3am3k")
 text = "Right"

@@ -1,13 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://bevslg0d78r02"]
+[gd_scene load_steps=3 format=3 uid="uid://bevslg0d78r02"]
 
 [ext_resource type="Script" uid="uid://8qu7saoq443u" path="res://objects/log/log.gd" id="1_5yedx"]
+[ext_resource type="Texture2D" uid="uid://b3swr72qhjlqr" path="res://assets/house/Oven/Log.png" id="2_8ssdb"]
 
 [node name="Log" type="Node2D"]
 script = ExtResource("1_5yedx")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5707964
+texture = ExtResource("2_8ssdb")
+
 [node name="Log" type="Button" parent="."]
-offset_right = 8.0
+offset_left = -24.0
+offset_top = -8.0
+offset_right = 24.0
 offset_bottom = 8.0
+theme_override_font_sizes/font_size = 4
 text = "Log"
 
 [connection signal="pressed" from="Log" to="." method="_on_button_pressed"]

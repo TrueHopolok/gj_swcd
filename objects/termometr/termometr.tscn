@@ -1,19 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://db527036kwnwg"]
+[gd_scene load_steps=5 format=3 uid="uid://db527036kwnwg"]
 
+[ext_resource type="Texture2D" uid="uid://dt2c8liy5jhy3" path="res://assets/house/Thermometer/Thermometer_cold.png" id="1_ha1n0"]
 [ext_resource type="Script" uid="uid://bi64kbvatpqac" path="res://objects/termometr/termometr.gd" id="1_loims"]
+[ext_resource type="Texture2D" uid="uid://bujguimjxsw40" path="res://assets/house/Thermometer/Thermometer_border.png" id="2_fs2ca"]
+[ext_resource type="Texture2D" uid="uid://jnic3ovmh1p" path="res://assets/house/Thermometer/Thermometer_warm.png" id="3_k5xl2"]
 
-[node name="Termometr" type="ProgressBar"]
-offset_right = 64.0
-offset_bottom = 64.0
+[node name="Termometr" type="TextureProgressBar"]
+offset_right = 32.0
+offset_bottom = 48.0
 step = 1.25
 value = 50.0
 fill_mode = 3
+texture_under = ExtResource("1_ha1n0")
+texture_over = ExtResource("2_fs2ca")
+texture_progress = ExtResource("3_k5xl2")
 script = ExtResource("1_loims")
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_top = -16.0
+offset_top = 80.0
 offset_right = 64.0
+offset_bottom = 96.0
 text = "Temperature"
 horizontal_alignment = 1
 vertical_alignment = 2

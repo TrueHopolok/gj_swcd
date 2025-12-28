@@ -7,6 +7,7 @@
 
 [node name="LeftRoom" type="Node2D"]
 script = ExtResource("1_tpj5w")
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
@@ -18,42 +19,12 @@ metadata/_edit_lock_ = true
 [node name="WindowNBlind" parent="." instance=ExtResource("3_ojayl")]
 metadata/_edit_lock_ = true
 
-[node name="Log6" parent="." instance=ExtResource("2_vekno")]
-position = Vector2(592, 256)
-
-[node name="Log7" parent="." instance=ExtResource("2_vekno")]
-position = Vector2(560, 256)
-
-[node name="Log8" parent="." instance=ExtResource("2_vekno")]
-position = Vector2(528, 256)
-
-[node name="Log9" parent="." instance=ExtResource("2_vekno")]
-position = Vector2(496, 256)
-
-[node name="Log10" parent="." instance=ExtResource("2_vekno")]
-position = Vector2(464, 256)
-
-[node name="Log11" parent="." instance=ExtResource("2_vekno")]
-position = Vector2(592, 224)
-
-[node name="Log12" parent="." instance=ExtResource("2_vekno")]
-position = Vector2(560, 224)
-
-[node name="Log13" parent="." instance=ExtResource("2_vekno")]
-position = Vector2(528, 224)
-
-[node name="Log14" parent="." instance=ExtResource("2_vekno")]
-position = Vector2(496, 224)
-
-[node name="Log15" parent="." instance=ExtResource("2_vekno")]
-position = Vector2(464, 224)
-
 [node name="Label" type="Label" parent="."]
 offset_left = 472.0
-offset_top = 184.0
+offset_top = 200.0
 offset_right = 607.0
-offset_bottom = 207.0
-text = "you can pick up it"
+offset_bottom = 223.0
+text = "you can pick up logs"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -66,3 +37,33 @@ text = "close curtains if you see someone peaking through
 listen for footsteps on the snow"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Log" parent="." instance=ExtResource("2_vekno")]
+position = Vector2(496, 280)
+
+[node name="Log2" parent="." instance=ExtResource("2_vekno")]
+position = Vector2(496, 264)
+
+[node name="Log3" parent="." instance=ExtResource("2_vekno")]
+position = Vector2(496, 248)
+
+[node name="Log4" parent="." instance=ExtResource("2_vekno")]
+position = Vector2(536, 280)
+
+[node name="Log5" parent="." instance=ExtResource("2_vekno")]
+position = Vector2(536, 264)
+
+[node name="Log6" parent="." instance=ExtResource("2_vekno")]
+position = Vector2(536, 248)
+
+[node name="Log7" parent="." instance=ExtResource("2_vekno")]
+position = Vector2(576, 280)
+
+[node name="Log8" parent="." instance=ExtResource("2_vekno")]
+position = Vector2(576, 264)
+
+[node name="Log9" parent="." instance=ExtResource("2_vekno")]
+position = Vector2(576, 248)
+
+[node name="Log10" parent="." instance=ExtResource("2_vekno")]
+position = Vector2(536, 232)

@@ -1,11 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjjnjovlm75xk"]
+[gd_scene load_steps=8 format=3 uid="uid://bjjnjovlm75xk"]
 
 [ext_resource type="Script" uid="uid://bg0vvce8ceg2r" path="res://objects/music_box/music_box.gd" id="1_qhv3d"]
+[ext_resource type="Texture2D" uid="uid://mcq317puwqti" path="res://assets/house/MusicBox/mbox_bg.png" id="2_d0l7p"]
 [ext_resource type="AudioStream" uid="uid://cishrg4y2acrf" path="res://audio/music/music_box_loop.wav" id="2_qhv3d"]
+[ext_resource type="Texture2D" uid="uid://cp67vcsn4jefw" path="res://assets/house/MusicBox/mbox_silent.png" id="3_073jb"]
 [ext_resource type="Script" uid="uid://b24b53wmb16x2" path="res://objects/spatial_audio/spatial_audio.gd" id="3_nnujl"]
+[ext_resource type="Texture2D" uid="uid://d1j1ohaw4l0e5" path="res://assets/house/MusicBox/mbox_slow.png" id="4_4idey"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xsxvq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_d0l7p")
+}],
+"loop": true,
+"name": &"ok",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_073jb")
+}],
+"loop": true,
+"name": &"silent",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_4idey")
+}],
+"loop": true,
+"name": &"slow",
+"speed": 5.0
+}]
 
 [node name="MusicBox" type="Node2D"]
 script = ExtResource("1_qhv3d")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(320, 180)
+scale = Vector2(2, 2.25)
+sprite_frames = SubResource("SpriteFrames_xsxvq")
+animation = &"ok"
+autoplay = "ok"
 
 [node name="MusicBox_Audio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_qhv3d")
@@ -13,8 +50,10 @@ autoplay = true
 script = ExtResource("3_nnujl")
 
 [node name="Button" type="Button" parent="."]
-offset_right = 64.0
-offset_bottom = 64.0
+offset_left = 256.0
+offset_top = 192.0
+offset_right = 384.0
+offset_bottom = 320.0
 text = "SMASH ME"
 
 [connection signal="button_down" from="Button" to="." method="_on_wind_start"]

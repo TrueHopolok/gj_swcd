@@ -1,4 +1,4 @@
-extends ProgressBar
+extends TextureProgressBar
 
 
 @onready var oven: Oven = get_tree().get_first_node_in_group("Oven")
