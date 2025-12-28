@@ -18,6 +18,7 @@ func _on_exit_pressed() -> void:
 
 
 func _on_easy_pressed() -> void:
+	Global.difficulty = EASY
 	var pk := preload(HOUSE)
 	var house := pk.instantiate()
 	house.config = load(EASY)
@@ -32,10 +33,11 @@ func _on_easy_pressed() -> void:
 
 
 func _on_hard_pressed() -> void:
+	Global.difficulty = HARD
 	var pk := preload(HOUSE)
 	var house := pk.instantiate()
 	house.config = load(HARD)
-
+	
 	var root := get_tree().root
 	var old_scene := get_tree().current_scene
 
@@ -46,6 +48,7 @@ func _on_hard_pressed() -> void:
 
 
 func _on_unfair_pressed() -> void:
+	Global.difficulty = UNFAIR
 	var pk := preload(HOUSE)
 	var house := pk.instantiate()
 	house.config = load(UNFAIR)
