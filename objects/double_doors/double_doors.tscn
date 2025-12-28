@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://2c7o16jntr3o"]
+[gd_scene load_steps=5 format=3 uid="uid://2c7o16jntr3o"]
 
 [ext_resource type="ButtonGroup" uid="uid://dg5wecnyarym2" path="res://objects/double_doors/doors_group.tres" id="1_3am3k"]
 [ext_resource type="Script" uid="uid://benyjuon1ddpd" path="res://objects/double_doors/double_doors.gd" id="1_pinfa"]
 [ext_resource type="AudioStream" uid="uid://lh7phqjlef5u" path="res://audio/sfx/Steps.mp3" id="3_mhvgt"]
+[ext_resource type="Script" uid="uid://b24b53wmb16x2" path="res://objects/spatial_audio/spatial_audio.gd" id="4_hfyjo"]
 
 [node name="DoubleDoors" type="Node2D"]
 script = ExtResource("1_pinfa")
@@ -32,6 +33,7 @@ one_shot = true
 [node name="Steps" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_mhvgt")
 bus = &"SFX_PAN_MAN"
+script = ExtResource("4_hfyjo")
 
 [connection signal="pressed" from="LeftDoor" to="." method="_on_left_door_pressed"]
 [connection signal="pressed" from="RightDoor" to="." method="_on_right_door_pressed"]

@@ -81,10 +81,9 @@ func _deactivate() -> void:
 
 
 func generate_new_word() -> void:
-	start.play(0)
 	if is_locked: return
 	if _chance < randf(): return
-	
+	start.play(0)
 	is_locked = true
 	
 	var rng: int = randi() % len(_words)
