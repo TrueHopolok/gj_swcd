@@ -12,6 +12,7 @@ SFX todo:
 @export var room_to_the_right: Room
 @export var wordle: Wordle
 
+@onready var gm: GameManager = GameManager.get_instance()
 @onready var gmconfig: DifficultyConfig = GameManager.get_config()
 @onready var _transition_rect: ColorRect = %TransitionRect
 @onready var _wordle_room: bool = is_instance_valid(wordle)
@@ -24,9 +25,11 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("move_left"):
 		if is_instance_valid(room_to_the_left):
 			_leave(true)
+			gm.moved_left.emit()
 	elif event.is_action_pressed("move_right"):
 		if is_instance_valid(room_to_the_right):
 			_leave(false)
+			gm.moved_right.emit()
 
 
 func _leave(move_left: bool) -> void:

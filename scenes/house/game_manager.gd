@@ -1,6 +1,13 @@
 class_name GameManager
 extends Node2D
 
+## Signals are called by room_switch script
+
+@warning_ignore("unused_signal")
+signal moved_left
+@warning_ignore("unused_signal")
+signal moved_right
+
 ## Difficulty of the game can be changed here.
 @export var config: DifficultyConfig
 
