@@ -10,7 +10,6 @@ script = ExtResource("1_qhv3d")
 [node name="MusicBox_Audio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_qhv3d")
 autoplay = true
-bus = &"MusicBox"
 script = ExtResource("3_nnujl")
 
 [node name="Button" type="Button" parent="."]

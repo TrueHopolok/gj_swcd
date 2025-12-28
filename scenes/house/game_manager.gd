@@ -21,13 +21,11 @@ static func get_config() -> DifficultyConfig:
 
 
 func win() -> void:
-	get_tree().reload_current_scene()
-	# TODO: switch to win screen
+	get_tree().change_scene_to_file("res://ui/win_screen/win_screen.tscn")
 
 
 func lose() -> void:
 	get_tree().change_scene_to_file("res://ui/death_screen/death_screen.tscn")
-	# TODO: switch to lose screen
 
 
 func _ready() -> void:
