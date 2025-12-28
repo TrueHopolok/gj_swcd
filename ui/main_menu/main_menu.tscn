@@ -1,0 +1,77 @@
+[gd_scene load_steps=2 format=3 uid="uid://bj33qfj6ey3l4"]
+
+[ext_resource type="Script" uid="uid://bj40v4sosvwy8" path="res://ui/main_menu/main_menu.gd" id="1_uhj5c"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uhj5c")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 19.0
+offset_right = 664.0
+offset_bottom = 379.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="AudioSettings" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Audio Setting"
+
+[node name="Exit" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Hints"
+
+[node name="CheckButton" type="CheckButton" parent="CenterContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="DifficultySelector" type="AspectRatioContainer" parent="CenterContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer/HBoxContainer/DifficultySelector"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/DifficultySelector/VBoxContainer2"]
+layout_mode = 2
+text = "Choose difficulty"
+
+[node name="Easy" type="Button" parent="CenterContainer/HBoxContainer/DifficultySelector/VBoxContainer2"]
+layout_mode = 2
+text = "Easy"
+
+[node name="Hard" type="Button" parent="CenterContainer/HBoxContainer/DifficultySelector/VBoxContainer2"]
+layout_mode = 2
+text = "Medium"
+
+[node name="Unfair" type="Button" parent="CenterContainer/HBoxContainer/DifficultySelector/VBoxContainer2"]
+layout_mode = 2
+text = "Hard"
+
+[connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/AudioSettings" to="." method="_on_audio_settings_pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/DifficultySelector/VBoxContainer2/Easy" to="." method="_on_easy_pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/DifficultySelector/VBoxContainer2/Hard" to="." method="_on_hard_pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/DifficultySelector/VBoxContainer2/Unfair" to="." method="_on_unfair_pressed"]
