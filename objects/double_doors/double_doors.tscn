@@ -1,9 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://2c7o16jntr3o"]
+[gd_scene load_steps=6 format=3 uid="uid://2c7o16jntr3o"]
 
 [ext_resource type="ButtonGroup" uid="uid://dg5wecnyarym2" path="res://objects/double_doors/doors_group.tres" id="1_3am3k"]
 [ext_resource type="Script" uid="uid://benyjuon1ddpd" path="res://objects/double_doors/double_doors.gd" id="1_pinfa"]
 [ext_resource type="Texture2D" uid="uid://jtvohulrxdwc" path="res://assets/house/DoubleDoors/DoubleDoors.png" id="2_mhvgt"]
 [ext_resource type="AudioStream" uid="uid://lh7phqjlef5u" path="res://audio/sfx/Steps.mp3" id="3_mhvgt"]
+[ext_resource type="Script" uid="uid://b3uumy7u8iwxj" path="res://objects/hint_label/hint_label.gd" id="5_kk4o1"]
 
 [node name="DoubleDoors" type="Node2D"]
 script = ExtResource("1_pinfa")
@@ -14,6 +15,7 @@ scale = Vector2(2, 2.25)
 texture = ExtResource("2_mhvgt")
 
 [node name="LeftDoor" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
 offset_left = 56.0
 offset_top = 64.0
 offset_right = 176.0
@@ -24,6 +26,7 @@ button_group = ExtResource("1_3am3k")
 text = "Left"
 
 [node name="RightDoor" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
 offset_left = 464.0
 offset_top = 64.0
 offset_right = 584.0
@@ -41,6 +44,16 @@ one_shot = true
 [node name="Steps" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_mhvgt")
 bus = &"SFX_PAN_MAN"
+
+[node name="DoorsHint" type="Label" parent="."]
+offset_left = 88.0
+offset_top = 40.0
+offset_right = 552.0
+offset_bottom = 63.0
+text = "close correct door if you hear footsteps"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_kk4o1")
 
 [connection signal="pressed" from="LeftDoor" to="." method="_on_left_door_pressed"]
 [connection signal="pressed" from="RightDoor" to="." method="_on_right_door_pressed"]

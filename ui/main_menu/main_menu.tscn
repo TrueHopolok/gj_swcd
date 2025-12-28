@@ -43,8 +43,9 @@ layout_mode = 2
 layout_mode = 2
 text = "Hints"
 
-[node name="CheckButton" type="CheckButton" parent="CenterContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="HintButton" type="CheckButton" parent="CenterContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+button_pressed = true
 
 [node name="DifficultySelector" type="AspectRatioContainer" parent="CenterContainer/HBoxContainer"]
 visible = false
@@ -72,6 +73,7 @@ text = "Unfair"
 [connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/AudioSettings" to="." method="_on_audio_settings_pressed"]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="toggled" from="CenterContainer/HBoxContainer/VBoxContainer/HBoxContainer/HintButton" to="." method="_on_hint_button_toggled"]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/DifficultySelector/VBoxContainer2/Easy" to="." method="_on_easy_pressed"]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/DifficultySelector/VBoxContainer2/Hard" to="." method="_on_hard_pressed"]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/DifficultySelector/VBoxContainer2/Unfair" to="." method="_on_unfair_pressed"]

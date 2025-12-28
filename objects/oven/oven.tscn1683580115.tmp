@@ -71,7 +71,6 @@ anim_speed_max = 0.6
 anim_offset_max = 1.0
 
 [node name="ThrowLogsButton" type="Button" parent="."]
-modulate = Color(1, 1, 1, 0)
 offset_left = 248.0
 offset_top = 216.0
 offset_right = 392.0

@@ -12,7 +12,10 @@ Animations / images:
 	- Fire inside
 '''
 
+const NO_LOG_HINT = "try to find a log to throw into it"
+const HAS_LOG_HINT = "you can throw log into it"
 
+@onready var _oven_hint: Label = $OvenHint
 @onready var gm: GameManager = GameManager.get_instance()
 @onready var gmconfig: DifficultyConfig = GameManager.get_config()
 @onready var heat: float = gmconfig.oven_starting_heat
@@ -37,6 +40,11 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	if has_log:
+		_oven_hint.text = HAS_LOG_HINT
+	else:
+		_oven_hint.text = NO_LOG_HINT
+
 	_sprite.play("hovered" if _button.is_hovered() else "idle")
 
 	# This calculates how long in hours can player last considering he has 10 logs

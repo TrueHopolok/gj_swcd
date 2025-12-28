@@ -7,15 +7,10 @@ SFX todo:
 	- moving through
 '''
 
-const NO_LOG_HINT = "try to find a log to throw into it"
-const HAS_LOG_HINT = "you can throw log into it"
-
 @export var room_to_the_left: Room
 @export var room_to_the_right: Room
 @export var wordle: Wordle
 
-@onready var oven_hint: Label = $OvenHint
-@onready var oven: Oven = get_tree().get_first_node_in_group("Oven")
 @onready var gm: GameManager = GameManager.get_instance()
 @onready var gmconfig: DifficultyConfig = GameManager.get_config()
 @onready var _transition_rect: ColorRect = %TransitionRect
@@ -49,11 +44,6 @@ func enter() -> void:
 	show()
 	if _wordle_room:
 		wordle.generate_new_word()
-		if is_instance_valid(oven):
-			if oven.has_log:
-				oven_hint.text = HAS_LOG_HINT
-			else:
-				oven_hint.text = NO_LOG_HINT
 	var tween = get_tree().create_tween()
 	tween.tween_property(_transition_rect, "color:a", 0.0, gmconfig.room_transition_time / 2)
 	tween.tween_callback(func() -> void:

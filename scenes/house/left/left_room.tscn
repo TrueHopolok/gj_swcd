@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://di6ecsgcyv5nr"]
+[gd_scene load_steps=6 format=3 uid="uid://di6ecsgcyv5nr"]
 
 [ext_resource type="Script" uid="uid://bsqwlg5vc44us" path="res://scenes/house/room_switch.gd" id="1_tpj5w"]
 [ext_resource type="PackedScene" uid="uid://bevslg0d78r02" path="res://objects/log/log.tscn" id="2_vekno"]
 [ext_resource type="PackedScene" uid="uid://ctef5p8q83n01" path="res://objects/window_n_blind/window_n_blind.tscn" id="3_ojayl"]
+[ext_resource type="Script" uid="uid://b3uumy7u8iwxj" path="res://objects/hint_label/hint_label.gd" id="4_k5f2b"]
 [ext_resource type="Texture2D" uid="uid://dbpf0c3exep18" path="res://assets/house/LeftRoom_no_decor.png" id="4_ys1mc"]
 
 [node name="LeftRoom" type="Node2D"]
@@ -19,51 +20,52 @@ metadata/_edit_lock_ = true
 [node name="WindowNBlind" parent="." instance=ExtResource("3_ojayl")]
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="."]
-offset_left = 472.0
-offset_top = 200.0
-offset_right = 607.0
-offset_bottom = 223.0
+[node name="LogsHint" type="Label" parent="."]
+offset_left = 432.0
+offset_top = 176.0
+offset_right = 567.0
+offset_bottom = 199.0
 text = "you can pick up logs"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="."]
-offset_left = -120.0
-offset_top = -16.0
-offset_right = 444.0
-offset_bottom = 75.0
-text = "close curtains if you see someone peaking through
-listen for footsteps on the snow"
-horizontal_alignment = 1
-vertical_alignment = 1
+script = ExtResource("4_k5f2b")
 
 [node name="Log" parent="." instance=ExtResource("2_vekno")]
-position = Vector2(496, 280)
+position = Vector2(432, 288)
+scale = Vector2(1.5, 1.5)
 
 [node name="Log2" parent="." instance=ExtResource("2_vekno")]
-position = Vector2(496, 264)
+position = Vector2(432.00003, 264)
+scale = Vector2(1.5, 1.5)
 
 [node name="Log3" parent="." instance=ExtResource("2_vekno")]
-position = Vector2(496, 248)
+position = Vector2(432, 240)
+scale = Vector2(1.5, 1.5)
 
 [node name="Log4" parent="." instance=ExtResource("2_vekno")]
-position = Vector2(536, 280)
+position = Vector2(496, 288)
+scale = Vector2(1.5, 1.5)
 
 [node name="Log5" parent="." instance=ExtResource("2_vekno")]
-position = Vector2(536, 264)
+position = Vector2(496, 264)
+scale = Vector2(1.5, 1.5)
 
 [node name="Log6" parent="." instance=ExtResource("2_vekno")]
-position = Vector2(536, 248)
+position = Vector2(496, 240.00002)
+scale = Vector2(1.5, 1.5)
 
 [node name="Log7" parent="." instance=ExtResource("2_vekno")]
-position = Vector2(576, 280)
+position = Vector2(560, 288)
+scale = Vector2(1.5, 1.5)
 
 [node name="Log8" parent="." instance=ExtResource("2_vekno")]
-position = Vector2(576, 264)
+position = Vector2(560, 264)
+scale = Vector2(1.5, 1.5)
 
 [node name="Log9" parent="." instance=ExtResource("2_vekno")]
-position = Vector2(576, 248)
+position = Vector2(560, 240)
+scale = Vector2(1.5, 1.5)
 
 [node name="Log10" parent="." instance=ExtResource("2_vekno")]
-position = Vector2(536, 232)
+position = Vector2(496, 216)
+scale = Vector2(1.5, 1.5)

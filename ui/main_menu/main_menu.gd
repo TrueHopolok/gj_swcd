@@ -60,3 +60,7 @@ func _on_unfair_pressed() -> void:
 	get_tree().current_scene = house
 
 	old_scene.queue_free()
+
+
+func _on_hint_button_toggled(toggled_on: bool) -> void:
+	Global.hints_enabled = toggled_on
