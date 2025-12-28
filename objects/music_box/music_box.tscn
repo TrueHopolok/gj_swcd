@@ -17,3 +17,5 @@ text = "SMASH ME"
 
 [connection signal="button_down" from="Button" to="." method="_on_wind_start"]
 [connection signal="button_up" from="Button" to="." method="_on_wind_stop"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]

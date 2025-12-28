@@ -31,10 +31,9 @@ func _process(delta: float) -> void:
 		music.pitch_scale = 1.0
 		music.volume_linear = 1.0
 
-
-func _on_wind_stop() -> void:
-	_is_held = false
-
-
-func _on_wind_start() -> void:
+func _on_button_mouse_entered() -> void:
 	_is_held = true
+
+
+func _on_button_mouse_exited() -> void:
+	_is_held = false
