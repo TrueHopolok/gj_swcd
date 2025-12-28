@@ -14,3 +14,17 @@ position = Vector2(256, 128)
 [node name="Wordle" parent="." instance=ExtResource("3_xfbbw")]
 unique_name_in_owner = true
 position = Vector2(214, 256)
+
+[node name="OvenHint" type="Label" parent="."]
+offset_left = 195.0
+offset_top = 183.0
+offset_right = 433.0
+offset_bottom = 206.0
+text = "try to find a log to throw into it"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 269.0
+offset_top = 235.0
+offset_right = 357.0
+offset_bottom = 258.0
+text = "idk for now"
