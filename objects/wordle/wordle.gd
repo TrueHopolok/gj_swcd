@@ -16,10 +16,14 @@ Animations / images todo:
 
 var is_locked: bool = false
 
-@onready var _letter_1: Button = $VBoxContainer/HBoxContainer/Letter1
-@onready var _letter_2: Button = $VBoxContainer/HBoxContainer/Letter2
-@onready var _letter_3: Button = $VBoxContainer/HBoxContainer/Letter3
-@onready var _letter_4: Button = $VBoxContainer/HBoxContainer/Letter4
+@onready var _letter_1: TextureButton = $VBoxContainer/HBoxContainer/Letter1
+@onready var _letter_2: TextureButton = $VBoxContainer/HBoxContainer/Letter2
+@onready var _letter_3: TextureButton = $VBoxContainer/HBoxContainer/Letter3
+@onready var _letter_4: TextureButton = $VBoxContainer/HBoxContainer/Letter4
+@onready var _letter_1_label: Label = $VBoxContainer/HBoxContainer/Letter1/Label
+@onready var _letter_2_label: Label = $VBoxContainer/HBoxContainer/Letter2/Label
+@onready var _letter_3_label: Label = $VBoxContainer/HBoxContainer/Letter3/Label
+@onready var _letter_4_label: Label = $VBoxContainer/HBoxContainer/Letter4/Label
 @onready var _word: Label = $VBoxContainer/Word
 @onready var click: AudioStreamPlayer2D = $click
 @onready var start: AudioStreamPlayer2D = $start
@@ -81,10 +85,10 @@ func _deactivate() -> void:
 
 
 func generate_new_word() -> void:
-	start.play(0)
 	if is_locked: return
 	if _chance < randf(): return
 	
+	start.play(0)
 	is_locked = true
 	
 	var rng: int = randi() % len(_words)
@@ -110,26 +114,26 @@ func generate_new_word() -> void:
 		_box[i][0] = opt_str
 		_box[i][1] = randi() % len(opt_str)
 		
-	_letter_1.text = _box[0][0][_box[0][1]]
-	_letter_2.text = _box[1][0][_box[1][1]]
-	_letter_3.text = _box[2][0][_box[2][1]]
-	_letter_4.text = _box[3][0][_box[3][1]]
+	_letter_1_label.text = _box[0][0][_box[0][1]]
+	_letter_2_label.text = _box[1][0][_box[1][1]]
+	_letter_3_label.text = _box[2][0][_box[2][1]]
+	_letter_4_label.text = _box[3][0][_box[3][1]]
 	_activate()
 	if unique_index == 0:
 		_letter_1.disabled = true
-		_letter_1.text = _answer[0]
+		_letter_1_label.text = _answer[0]
 		_box[0][0][_box[0][1]] = _answer[0]
 	elif unique_index == 1:
 		_letter_2.disabled = true
-		_letter_2.text = _answer[1]
+		_letter_2_label.text = _answer[1]
 		_box[1][0][_box[1][1]] = _answer[1]
 	elif unique_index == 2:
 		_letter_3.disabled = true
-		_letter_3.text = _answer[2]
+		_letter_3_label.text = _answer[2]
 		_box[2][0][_box[2][1]] = _answer[2]
 	elif unique_index == 3:
 		_letter_4.disabled = true
-		_letter_4.text = _answer[3]
+		_letter_4_label.text = _answer[3]
 		_box[3][0][_box[3][1]] = _answer[3]
 	validate()
 	
@@ -143,26 +147,26 @@ func validate() -> void:
 func _on_letter_1_pressed() -> void:
 	click.play()
 	_box[0][1] = (_box[0][1] + 1)  % len(_box[0][0])
-	_letter_1.text = _box[0][0][_box[0][1]]
+	_letter_1_label.text = _box[0][0][_box[0][1]]
 	validate()
 
 
 func _on_letter_2_pressed() -> void:
 	click.play()
 	_box[1][1] = (_box[1][1] + 1)  % len(_box[1][0])
-	_letter_2.text = _box[1][0][_box[1][1]]
+	_letter_2_label.text = _box[1][0][_box[1][1]]
 	validate()
 
 
 func _on_letter_3_pressed() -> void:
 	click.play()
 	_box[2][1] = (_box[2][1] + 1)  % len(_box[2][0])
-	_letter_3.text = _box[2][0][_box[2][1]]
+	_letter_3_label.text = _box[2][0][_box[2][1]]
 	validate()
 
 
 func _on_letter_4_pressed() -> void:
 	click.play()
 	_box[3][1] = (_box[3][1] + 1)  % len(_box[3][0])
-	_letter_4.text = _box[3][0][_box[3][1]]
+	_letter_4_label.text = _box[3][0][_box[3][1]]
 	validate()

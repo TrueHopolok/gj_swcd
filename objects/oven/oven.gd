@@ -23,6 +23,7 @@ var _heating: float
 
 @onready var _button: Button = $ThrowLogsButton
 @onready var _sprite: AnimatedSprite2D = $Sprite2D
+@onready var _particles: CPUParticles2D = $CPUParticles2D
 
 
 ## This formula arose from Physics movement equations
@@ -36,7 +37,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	_sprite.play("hovered" if _button.is_hovered() else "idle") 
+	_sprite.play("hovered" if _button.is_hovered() else "idle")
 
 	# This calculates how long in hours can player last considering he has 10 logs
 	# print((gmconfig.oven_starting_heat + gmconfig.oven_heating_per_log * 10) / gmconfig.oven_cooling_speed / gmconfig.night_hour_length)
@@ -49,6 +50,7 @@ func _process(delta: float) -> void:
 	heat = clampf(heat + _temp_diff * delta, 0.0, gmconfig.oven_max_heat)
 	if heat <= 0:
 		gm.lose()
+	_particles.emitting = heat > gmconfig.oven_max_heat / 2
 	if _temp_diff > -gmconfig.oven_cooling_speed:
 		_temp_diff = clampf(_temp_diff - gmconfig.oven_cooling_speed * delta, -gmconfig.oven_cooling_speed, _heating)
 

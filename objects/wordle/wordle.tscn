@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cy0ylgn52iyv8"]
+[gd_scene load_steps=7 format=3 uid="uid://cy0ylgn52iyv8"]
 
 [ext_resource type="Script" uid="uid://q48nbrxc7h7l" path="res://objects/wordle/wordle.gd" id="1_aa0vr"]
 [ext_resource type="AudioStream" uid="uid://dputkmr54iu8w" path="res://audio/sfx/worlde_start.wav" id="2_qwbuv"]
+[ext_resource type="Texture2D" uid="uid://xrhtowsagsge" path="res://assets/house/Wordle/w_disabled.png" id="2_vhcca"]
+[ext_resource type="Texture2D" uid="uid://bg7071o7pdgkx" path="res://assets/house/Wordle/w_enabled.png" id="3_ipyam"]
 [ext_resource type="AudioStream" uid="uid://dg55jeuep2eta" path="res://audio/sfx/worlde_click.wav" id="3_xgqnq"]
+
+[sub_resource type="Theme" id="Theme_vhcca"]
+Button/colors/font_color = Color(0, 0, 0, 1)
 
 [node name="Wordle" type="Node2D"]
 script = ExtResource("1_aa0vr")
@@ -20,29 +25,89 @@ horizontal_alignment = 1
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Letter1" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Letter1" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+theme = SubResource("Theme_vhcca")
 disabled = true
-text = "H"
+texture_normal = ExtResource("3_ipyam")
+texture_pressed = ExtResource("3_ipyam")
+texture_hover = ExtResource("3_ipyam")
+texture_disabled = ExtResource("2_vhcca")
+stretch_mode = 0
 
-[node name="Letter2" type="Button" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-disabled = true
-text = "E"
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Letter1"]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Letter3" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Letter2" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+theme = SubResource("Theme_vhcca")
 disabled = true
-text = "L"
+texture_normal = ExtResource("3_ipyam")
+texture_pressed = ExtResource("3_ipyam")
+texture_hover = ExtResource("3_ipyam")
+texture_disabled = ExtResource("2_vhcca")
+stretch_mode = 0
 
-[node name="Letter4" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Letter2"]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "B"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Letter3" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+theme = SubResource("Theme_vhcca")
 disabled = true
-text = "P"
+texture_normal = ExtResource("3_ipyam")
+texture_pressed = ExtResource("3_ipyam")
+texture_hover = ExtResource("3_ipyam")
+texture_disabled = ExtResource("2_vhcca")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Letter3"]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "C"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Letter4" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = SubResource("Theme_vhcca")
+disabled = true
+texture_normal = ExtResource("3_ipyam")
+texture_pressed = ExtResource("3_ipyam")
+texture_hover = ExtResource("3_ipyam")
+texture_disabled = ExtResource("2_vhcca")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Letter4"]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "D"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="start" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_qwbuv")
