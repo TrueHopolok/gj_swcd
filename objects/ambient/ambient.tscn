@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://bs0r1e3smwxqf"]
+
+[ext_resource type="Script" uid="uid://dylpbirxyspxc" path="res://objects/ambient/ambient.gd" id="1_ptuno"]
+[ext_resource type="AudioStream" uid="uid://bktaullmujiqw" path="res://audio/ambiant/dogbark.mp3" id="1_y1pfk"]
+[ext_resource type="AudioStream" uid="uid://d0iu4rckatvkm" path="res://audio/ambiant/floor.mp3" id="3_4xvfe"]
+[ext_resource type="AudioStream" uid="uid://bwx6086ty3dxx" path="res://audio/ambiant/wind.mp3" id="4_ibdya"]
+[ext_resource type="AudioStream" uid="uid://brm2k7odhqni" path="res://audio/ambiant/kids-laugh.mp3" id="5_ws7xq"]
+
+[node name="Ambient" type="Node2D"]
+script = ExtResource("1_ptuno")
+
+[node name="Barking" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, 192)
+stream = ExtResource("1_y1pfk")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="Floor" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(320, 0)
+stream = ExtResource("3_4xvfe")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="Wind" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ibdya")
+pitch_scale = 0.6
+bus = &"Wind"
+
+[node name="Kids" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(640, 0)
+stream = ExtResource("5_ws7xq")
+pitch_scale = 0.8
+bus = &"Kids"
