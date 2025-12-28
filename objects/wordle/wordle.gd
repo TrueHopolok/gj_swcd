@@ -1,19 +1,6 @@
 class_name Wordle
 extends Node2D
 
-
-'''
-SFX todo:
-	- Switch dice
-	- Spawn
-	- New threat
-
-Animations / images todo:
-	- Dice with letters (make it godot theme)
-'''
-
-@onready var gmconfig: DifficultyConfig = GameManager.get_config()
-
 var is_locked: bool = false
 
 @onready var _letter_1: TextureButton = $VBoxContainer/HBoxContainer/Letter1
@@ -33,7 +20,7 @@ const _alphabet := [
 	"N","O","P","Q","R","S","T","U","V","W","X","Y","Z"
 ]
 
-var _words = [
+var words = [
   ["NOEL", 0],
   ["YEAR", 0],
   ["TIME", 2],
@@ -55,33 +42,8 @@ var _words = [
   ["VOWS", 0],
   ["PLAN", 3]
 ]
-var _box: Array = [["HEGR", 0], ["EGR", 0], ["LPO", 0], ["POG", 0]]
-var _answer: String
-var _chance: float = 0.0
-
-
-func _ready() -> void:
-	_update_wordle(0)
-	get_tree().get_first_node_in_group("NightTimer").hour_passed.connect(_update_wordle)
-
-
-func _update_wordle(hour: int) -> void:
-	if gmconfig.wordle_chance.has(hour):
-		_chance = gmconfig.wordle_chance[hour]
-
-
-func _activate() -> void:
-	_letter_1.disabled = false
-	_letter_2.disabled = false
-	_letter_3.disabled = false
-	_letter_4.disabled = false
-
-
-func _deactivate() -> void:
-	_letter_1.disabled = true
-	_letter_2.disabled = true
-	_letter_3.disabled = true
-	_letter_4.disabled = true
+var box: Array = [["HEGR", 0], ["EGR", 0], ["LPO", 0], ["POG", 0]]
+var answer: String
 
 
 func generate_new_word() -> void:
@@ -91,17 +53,16 @@ func generate_new_word() -> void:
 	start.play(0)
 	is_locked = true
 	
-	var rng: int = randi() % len(_words)
-	_answer = _words[rng][0]
-	_word.text = _answer
-	var unique_index: int = _words[rng][1]
+	var rng: int = randi() % len(words)
+	answer = words[rng][0]
+	var unique_index: int = words[rng][1]
 	for i in range(4):
 		var opts: Array[String] = []
-		var correct: String = _answer[i]
+		var correct: String = answer[i]
 		opts.append(correct)
 
 		while opts.size() < 4:
-			var c: String = _alphabet[randi() % _alphabet.size()]
+			var c: String = alphabet[randi() % alphabet.size()]
 			if not opts.has(c):
 				opts.append(c)
 
@@ -139,9 +100,8 @@ func generate_new_word() -> void:
 	
 
 func validate() -> void:
-	if _box[0][0][_box[0][1]]+_box[1][0][_box[1][1]]+_box[2][0][_box[2][1]]+_box[3][0][_box[3][1]] == _answer:
+	if box[0][0][box[0][1]]+box[1][0][box[1][1]]+box[2][0][box[2][1]]+box[3][0][box[3][1]] == answer:
 		is_locked = false
-		_deactivate()
 
 
 func _on_letter_1_pressed() -> void:
