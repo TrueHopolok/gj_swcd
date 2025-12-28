@@ -38,3 +38,18 @@ position = Vector2(256, 128)
 position = Vector2(256, 128)
 
 [node name="WindowNBlind" parent="." instance=ExtResource("3_ojayl")]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 310.0
+offset_top = 133.0
+offset_right = 445.0
+offset_bottom = 156.0
+text = "you can pick up it"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 134.0
+offset_top = 6.0
+offset_right = 698.0
+offset_bottom = 97.0
+text = "lose curtains if you see someone picking
+listen for footsteps on the snow"

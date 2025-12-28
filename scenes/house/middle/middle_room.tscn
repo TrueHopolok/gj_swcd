@@ -12,3 +12,17 @@ position = Vector2(256, 128)
 
 [node name="DoubleDoors" parent="." instance=ExtResource("3_wq75q")]
 position = Vector2(160, 256)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 100.0
+offset_top = 328.0
+offset_right = 564.0
+offset_bottom = 351.0
+text = "close correct door if you hear footsteps on the wooden floor"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 177.0
+offset_top = 95.0
+offset_right = 459.0
+offset_bottom = 118.0
+text = "hover to wind it, do not let it unwind"
