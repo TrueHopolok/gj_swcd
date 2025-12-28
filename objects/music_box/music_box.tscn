@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bjjnjovlm75xk"]
+[gd_scene load_steps=10 format=3 uid="uid://bjjnjovlm75xk"]
 
 [ext_resource type="Script" uid="uid://bg0vvce8ceg2r" path="res://objects/music_box/music_box.gd" id="1_qhv3d"]
 [ext_resource type="Texture2D" uid="uid://mcq317puwqti" path="res://assets/house/MusicBox/mbox_bg.png" id="2_d0l7p"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cp67vcsn4jefw" path="res://assets/house/MusicBox/mbox_silent.png" id="3_073jb"]
 [ext_resource type="Script" uid="uid://b24b53wmb16x2" path="res://objects/spatial_audio/spatial_audio.gd" id="3_nnujl"]
 [ext_resource type="Texture2D" uid="uid://d1j1ohaw4l0e5" path="res://assets/house/MusicBox/mbox_slow.png" id="4_4idey"]
+[ext_resource type="AudioStream" uid="uid://bgxwj6dtn1jcx" path="res://audio/sfx/rewind.wav" id="7_073jb"]
 [ext_resource type="Script" uid="uid://b3uumy7u8iwxj" path="res://objects/hint_label/hint_label.gd" id="7_073jb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xsxvq"]
@@ -48,6 +49,11 @@ autoplay = "ok"
 [node name="MusicBox_Audio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_qhv3d")
 autoplay = true
+script = ExtResource("3_nnujl")
+
+[node name="windup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_073jb")
+volume_db = -10.0
 script = ExtResource("3_nnujl")
 
 [node name="Button" type="Button" parent="."]
