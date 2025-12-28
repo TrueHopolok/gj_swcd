@@ -20,19 +20,21 @@ z_index = -1
 position = Vector2(320, 180)
 scale = Vector2(2, 2.25)
 texture = ExtResource("4_8nip3")
-metadata/_edit_lock_ = true
-position = Vector2(214, 256)
 
 [node name="OvenHint" type="Label" parent="."]
-offset_left = 195.0
-offset_top = 183.0
-offset_right = 433.0
-offset_bottom = 206.0
-text = "try to find a log to throw into it"
+offset_left = 200.0
+offset_top = 288.0
+offset_right = 438.0
+offset_bottom = 311.0
+text = "try to find a log to throw into oven"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label" type="Label" parent="."]
-offset_left = 269.0
-offset_top = 235.0
-offset_right = 357.0
-offset_bottom = 258.0
+offset_left = 272.0
+offset_top = 40.0
+offset_right = 368.0
+offset_bottom = 63.0
 text = "idk for now"
+horizontal_alignment = 1
+vertical_alignment = 1
