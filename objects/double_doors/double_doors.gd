@@ -13,7 +13,7 @@ Animations / images todo:
 	- Open/close door
 	- DEATH?
 '''
-
+@onready var bonk: SpatialAudioSource = $Bonk
 @onready var steps: AudioStreamPlayer2D = $Steps
 @onready var gm: GameManager = GameManager.get_instance()
 @onready var gmconfig: DifficultyConfig = GameManager.get_config()
@@ -54,6 +54,7 @@ func _on_rest_end() -> void:
 func _on_attack_end() -> void:
 	if (_attacking_left && _defending_left) || (!_attacking_left && !_defending_left):
 		_rest_timer.start(randf_range(gmconfig.doors_min_rest_time, gmconfig.doors_max_rest_time))
+		bonk.play(0)
 	else:
 		gm.lose()
 	steps.stop()

@@ -13,7 +13,7 @@ Animations / images todo:
 	- Curtain
 	- Eyes in the window
 '''
-
+@onready var blind: SpatialAudioSource = $Blind
 @onready var knock: AudioStreamPlayer2D = $Knock
 @onready var gm: GameManager = GameManager.get_instance()
 @onready var gmconfig: DifficultyConfig = GameManager.get_config()
@@ -21,6 +21,7 @@ Animations / images todo:
 @onready var _rest_timer: Timer = $RestTimer
 @onready var _blind: Button = $BlindButton
 @onready var _sprite: AnimatedSprite2D = $Sprite2D
+@onready var bonk: SpatialAudioSource = $Bonk
 var _attacking: bool = false
 
 
@@ -47,7 +48,7 @@ func _process(_delta: float) -> void:
 func _on_start_end(hour: int) -> void:
 	if hour == gmconfig.window_start_hour:
 		_rest_timer.start(randf_range(gmconfig.window_min_rest_time, gmconfig.window_max_rest_time))
-
+		
 
 func _on_rest_end() -> void:
 	_attacking = true
@@ -60,4 +61,10 @@ func _on_attack_end() -> void:
 	if _attacking:
 		gm.lose()
 	else:
+		bonk.play(0)
 		_rest_timer.start(randf_range(gmconfig.window_min_rest_time, gmconfig.window_max_rest_time))
+pass # Replace with function body.
+
+
+func _on_blind_button_button_down() -> void:
+	blind.play(0)

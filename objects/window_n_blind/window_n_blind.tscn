@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctef5p8q83n01"]
+[gd_scene load_steps=10 format=3 uid="uid://ctef5p8q83n01"]
 
 [ext_resource type="Script" uid="uid://c3c0pex5p82le" path="res://objects/window_n_blind/window_n_blind.gd" id="1_ounrq"]
 [ext_resource type="Texture2D" uid="uid://be7v7hqw6eq3f" path="res://assets/house/Window/Window_open.png" id="2_kfis8"]
 [ext_resource type="Texture2D" uid="uid://3kngsd4162fa" path="res://assets/house/Window/Window_busy.png" id="2_nihby"]
 [ext_resource type="Texture2D" uid="uid://c4tmp7s7lvw50" path="res://assets/house/Window/Window_closed.png" id="3_4556n"]
 [ext_resource type="AudioStream" uid="uid://vhgtnx50yixe" path="res://audio/sfx/Knock.mp3" id="5_4556n"]
+[ext_resource type="Script" uid="uid://b24b53wmb16x2" path="res://objects/spatial_audio/spatial_audio.gd" id="6_18olb"]
+[ext_resource type="AudioStream" uid="uid://dkku2bxxngeia" path="res://audio/sfx/blinds.wav" id="7_2488d"]
+[ext_resource type="AudioStream" uid="uid://critu05rxt6b" path="res://audio/sfx/bonk_window.wav" id="8_qmn83"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d15d4"]
 animations = [{
@@ -58,6 +61,22 @@ one_shot = true
 
 [node name="Knock" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_4556n")
+bus = &"SFX"
+script = ExtResource("6_18olb")
+pos = 1
 
+[node name="Blind" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_2488d")
+bus = &"SFX"
+script = ExtResource("6_18olb")
+pos = 1
+
+[node name="Bonk" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_qmn83")
+bus = &"SFX"
+script = ExtResource("6_18olb")
+pos = 1
+
+[connection signal="button_down" from="BlindButton" to="." method="_on_blind_button_button_down"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_end"]
 [connection signal="timeout" from="RestTimer" to="." method="_on_rest_end"]

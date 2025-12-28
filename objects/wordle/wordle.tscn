@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cy0ylgn52iyv8"]
+[gd_scene load_steps=9 format=3 uid="uid://cy0ylgn52iyv8"]
 
 [ext_resource type="Script" uid="uid://q48nbrxc7h7l" path="res://objects/wordle/wordle.gd" id="1_aa0vr"]
 [ext_resource type="AudioStream" uid="uid://dputkmr54iu8w" path="res://audio/sfx/worlde_start.wav" id="2_qwbuv"]
 [ext_resource type="Texture2D" uid="uid://xrhtowsagsge" path="res://assets/house/Wordle/w_disabled.png" id="2_vhcca"]
 [ext_resource type="Texture2D" uid="uid://bg7071o7pdgkx" path="res://assets/house/Wordle/w_enabled.png" id="3_ipyam"]
 [ext_resource type="AudioStream" uid="uid://dg55jeuep2eta" path="res://audio/sfx/worlde_click.wav" id="3_xgqnq"]
+[ext_resource type="Script" uid="uid://b24b53wmb16x2" path="res://objects/spatial_audio/spatial_audio.gd" id="5_ipyam"]
+[ext_resource type="AudioStream" uid="uid://ooxe621p1dbl" path="res://audio/sfx/applause.wav" id="7_cu5sy"]
 
 [sub_resource type="Theme" id="Theme_vhcca"]
 Button/colors/font_color = Color(0, 0, 0, 1)
@@ -112,10 +114,20 @@ vertical_alignment = 1
 [node name="start" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_qwbuv")
 bus = &"SFX"
+script = ExtResource("5_ipyam")
+pos = 3
 
 [node name="click" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_xgqnq")
 bus = &"SFX"
+script = ExtResource("5_ipyam")
+pos = 3
+
+[node name="applause" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_cu5sy")
+bus = &"SFX"
+script = ExtResource("5_ipyam")
+pos = 3
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Letter1" to="." method="_on_letter_1_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Letter2" to="." method="_on_letter_2_pressed"]
