@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DifficultyConfig" load_steps=2 format=3 uid="uid://b7acid50owmrd"]
+
+[ext_resource type="Script" uid="uid://itxr78oqj8y1" path="res://scenes/house/difficulties/difficulty_config.gd" id="1_oafy2"]
+
+[resource]
+script = ExtResource("1_oafy2")
+wordle_chance = {
+0: 1.0,
+1: 1.0,
+2: 1.0,
+3: 1.0,
+4: 1.0,
+5: 1.0
+}
+metadata/_custom_type_script = "uid://itxr78oqj8y1"

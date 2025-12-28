@@ -128,6 +128,7 @@ func generate_new_word() -> void:
 		_letter_4.disabled = true
 		_letter_4.text = _answer[3]
 		_box[3][0][_box[3][1]] = _answer[3]
+	validate()
 	
 
 func validate() -> void:

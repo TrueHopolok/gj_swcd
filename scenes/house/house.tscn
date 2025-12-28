@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://di6ecsgcyv5nr" path="res://scenes/house/left/left_room.tscn" id="1_44bws"]
 [ext_resource type="Script" uid="uid://doku3524rkflj" path="res://scenes/house/game_manager.gd" id="1_wusmn"]
-[ext_resource type="Resource" uid="uid://b4eytox78vfw5" path="res://scenes/house/difficulties/difficulty_easy.tres" id="2_yj2u4"]
+[ext_resource type="Resource" uid="uid://b7acid50owmrd" path="res://scenes/house/difficulties/difficulty_test.tres" id="2_yj2u4"]
 [ext_resource type="PackedScene" uid="uid://k3ecea1f6h5y" path="res://scenes/house/middle/middle_room.tscn" id="3_guua2"]
 [ext_resource type="PackedScene" uid="uid://c461lf2k0smg3" path="res://scenes/house/right/right_room.tscn" id="4_cr554"]
 [ext_resource type="PackedScene" uid="uid://dko2b2ekk2r0r" path="res://objects/night_timer/night_timer.tscn" id="6_guua2"]
