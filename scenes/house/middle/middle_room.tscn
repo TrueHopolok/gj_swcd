@@ -16,21 +16,25 @@ texture = ExtResource("2_4d4sm")
 metadata/_edit_lock_ = true
 
 [node name="MusicBox" parent="." instance=ExtResource("2_qlm3v")]
-position = Vector2(256, 128)
+metadata/_edit_lock_ = true
 
 [node name="DoubleDoors" parent="." instance=ExtResource("3_wq75q")]
 metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="."]
-offset_left = 100.0
-offset_top = 328.0
-offset_right = 564.0
-offset_bottom = 351.0
-text = "close correct door if you hear footsteps on the wooden floor"
+offset_left = 88.0
+offset_top = 64.0
+offset_right = 552.0
+offset_bottom = 87.0
+text = "close correct door if you hear footsteps"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 177.0
-offset_top = 95.0
-offset_right = 459.0
-offset_bottom = 118.0
+offset_left = 176.0
+offset_top = 216.0
+offset_right = 458.0
+offset_bottom = 239.0
 text = "hover to wind it, do not let it unwind"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -7,6 +7,7 @@ extends Node2D
 @onready var gm: GameManager = GameManager.get_instance()
 @onready var gmconfig: DifficultyConfig = GameManager.get_config()
 @onready var _current_value: float = gmconfig.musicbox_starting_value
+@onready var _sprite: AnimatedSprite2D = $Sprite2D
 var _is_held: bool = false
 var _pitch_error_positive: float
 
@@ -24,14 +25,17 @@ func _process(delta: float) -> void:
 		#if _current_value / gmconfig.musicbox_silent_threshold < randf():
 			#gm.lose()
 		AudioServer.set_bus_volume_linear(mbusindex, 0.0)
+		_sprite.play("silent")
 	elif _current_value <= gmconfig.musicbox_slowing_threshold:
 		var _pitch_error: float = (_current_value - gmconfig.musicbox_slowing_threshold) * 0.4 / (gmconfig.musicbox_slowing_threshold - gmconfig.musicbox_silent_threshold)
 		music.pitch_scale = 1.0 + _pitch_error
 		AudioServer.set_bus_volume_linear(mbusindex, 1.0 + _pitch_error)
+		_sprite.play("slow")
 	else:
 		_pitch_error_positive = !_pitch_error_positive
 		music.pitch_scale = 1.0
 		AudioServer.set_bus_volume_linear(mbusindex, 1.0)
+		_sprite.play("ok")
 
 func _on_button_mouse_entered() -> void:
 	_is_held = true
