@@ -188,7 +188,6 @@ pitch_scale = 0.8
 autoplay = true
 mix_target = 1
 max_polyphony = 3
-bus = &"Wind"
 parameters/looping = true
 
 [connection signal="pressed" from="Difficulties/Base/Easy" to="." method="_on_easy_pressed"]
