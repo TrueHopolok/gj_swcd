@@ -20,7 +20,7 @@ Be vigilant and make sure you have time to spell words with the cubes! Or do you
 - Audio design: RichShasha
 - Only few ambient effects were taken from: https://pixabay.com
 
-- In art design: HOPOLOK
+- In art design: Hopolok
 - Main menu art: Tomatoo
 
 <br>
