@@ -68,6 +68,15 @@ offset_right = 24.0
 offset_bottom = 256.0
 text = "<"
 script = ExtResource("10_12j21")
+action_executed = &"move_left"
+
+[node name="EscapeButton" type="Button" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+text = "Esc"
+script = ExtResource("10_12j21")
+action_executed = &"main_menu"
 
 [connection signal="pressed" from="RightSwitch" to="RightSwitch" method="_on_pressed"]
 [connection signal="pressed" from="LeftSwitch" to="LeftSwitch" method="_on_pressed"]
+[connection signal="pressed" from="EscapeButton" to="EscapeButton" method="_on_pressed"]

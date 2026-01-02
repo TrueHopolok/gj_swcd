@@ -10,6 +10,10 @@ const SPIN = "res://scenes/house/difficulties/difficulty_spin.tres"
 const HOUSE = "res://scenes/house/house.tscn"
 
 
+func _ready() -> void:
+	$Difficulties/Hints/ToggleHints.button_pressed = Global.hints_enabled
+
+
 func _on_easy_pressed() -> void:
 	Global.difficulty = EASY
 	var pk := preload(HOUSE)

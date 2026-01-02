@@ -1,6 +1,6 @@
 extends Button
 
-@export var action_executed: StringName = &"move_left"
+@export var action_executed: StringName
 @onready var _prep_action = InputEventAction.new()
 
 
