@@ -1,18 +1,6 @@
 extends Node2D
 
 
-'''
-SFX todo:
-	- Added for the night
-	- Spawn on left/right
-	- Close left/right door
-	- Bonk that defended
-	- DEATH?
-
-Animations / images todo:
-	- Open/close door
-	- DEATH?
-'''
 @onready var bonk: SpatialAudioSource = $Bonk
 @onready var steps: AudioStreamPlayer2D = $Steps
 @onready var gm: GameManager = GameManager.get_instance()
@@ -45,10 +33,12 @@ func _on_rest_end() -> void:
 		var bus_idx := AudioServer.get_bus_index("SFX_PAN_MAN")
 		var fx := AudioServer.get_bus_effect(bus_idx, 0)
 		fx.pan = -1
+		steps.pitch_scale = 1.1
 	else:
 		var bus_idx := AudioServer.get_bus_index("SFX_PAN_MAN")
 		var fx := AudioServer.get_bus_effect(bus_idx, 0)
 		fx.pan = 1
+		steps.pitch_scale = 0.9
 	steps.play(0)
 
 

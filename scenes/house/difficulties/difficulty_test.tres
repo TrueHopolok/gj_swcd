@@ -1,14 +1,22 @@
-[gd_resource type="Resource" script_class="DifficultyConfig" load_steps=2 format=3 uid="uid://b7e7le5l5u0oq"]
+[gd_resource type="Resource" script_class="DifficultyConfig" load_steps=2 format=3 uid="uid://b7acid50owmrd"]
 
 [ext_resource type="Script" uid="uid://itxr78oqj8y1" path="res://scenes/house/difficulties/difficulty_config.gd" id="1_oafy2"]
 
 [resource]
 script = ExtResource("1_oafy2")
-musicbox_starting_value = 30.0
-window_start_hour = 0
-window_min_rest_time = 0.0
-window_max_rest_time = 0.0
+oven_cooling_speed = 0.0
+wordle_chance = {
+0: 0.0,
+1: 0.0,
+2: 0.0,
+3: 0.0,
+4: 0.0,
+5: 0.0
+}
+musicbox_unwind_speed = 0.0
+window_start_hour = 6
 doors_start_hour = 0
-doors_min_rest_time = 0.0
-doors_max_rest_time = 0.0
+doors_min_rest_time = 0.5
+doors_max_rest_time = 1.0
+doors_attack_time = 3.0
 metadata/_custom_type_script = "uid://itxr78oqj8y1"

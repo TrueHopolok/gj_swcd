@@ -5,7 +5,7 @@ extends Button
 
 
 func _ready() -> void:
-	visible = OS.get_name() == "Android"
+	visible = OS.get_name() == "Android" || OS.get_name() == "Web"
 	if visible:
 		_prep_action.action = action_executed
 		_prep_action.pressed = true
