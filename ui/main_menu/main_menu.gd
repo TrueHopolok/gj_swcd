@@ -18,7 +18,7 @@ var config = ConfigFile.new()
 
 func _ready() -> void:
 	$Difficulties/Hints/ToggleHints.button_pressed = Global.hints_enabled
-	var err := config.load("user://config.cfg")
+	config.load("user://config.cfg")
 	general_slider.value = config.get_value("Audio", "General", 100)
 	music_slider.value = config.get_value("Audio", "Music", 100)
 	sfx_slider.value = config.get_value("Audio", "SFX", 100)
