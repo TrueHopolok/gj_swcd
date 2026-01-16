@@ -8,9 +8,11 @@ extends Node2D
 @onready var _attack_timer: Timer 	= $AttackTimer
 @onready var _rest_timer: Timer 	= $RestTimer
 @onready var _close_sfx: AudioStreamPlayer2D = $Close
-@onready var _sprite: Sprite2D = $Sprite2D
+@onready var _sprite_free: Sprite2D = $Sprite2D
+@onready var _sprite_busy: Sprite2D = $Busy
 var _attacking_left: bool = true
 var _defending_left: bool = true
+var _attacking: bool = false
 
 
 func _ready() -> void:
@@ -26,7 +28,9 @@ func _on_start_end(hour: int) -> void:
 
 
 func _on_rest_end() -> void:
+	_attacking = true
 	_attacking_left = randi_range(0, 1) == 0
+	_sprite_busy.visible = _defending_left != _attacking_left
 	_attack_timer.start(gmconfig.doors_attack_time)
 	print("DOUBLE_DOORS: ", "left" if _attacking_left else "right")
 	if _attacking_left:
@@ -43,6 +47,8 @@ func _on_rest_end() -> void:
 
 
 func _on_attack_end() -> void:
+	_attacking = false
+	_sprite_busy.visible = false
 	if (_attacking_left && _defending_left) || (!_attacking_left && !_defending_left):
 		_rest_timer.start(randf_range(gmconfig.doors_min_rest_time, gmconfig.doors_max_rest_time))
 		bonk.play(0)
@@ -54,7 +60,9 @@ func _on_attack_end() -> void:
 func _on_left_door_pressed() -> void:
 	if !_defending_left:
 		_defending_left = true
-		_sprite.flip_h = true
+		_sprite_free.flip_h = true
+		_sprite_busy.flip_h = true
+		_sprite_busy.visible = _attacking && !_attacking_left
 		_close_sfx.global_position.x = 0
 		_close_sfx.play()
 
@@ -62,6 +70,8 @@ func _on_left_door_pressed() -> void:
 func _on_right_door_pressed() -> void:
 	if _defending_left:
 		_defending_left = false
-		_sprite.flip_h = false
+		_sprite_free.flip_h = false
+		_sprite_busy.flip_h = false
+		_sprite_busy.visible = _attacking && _attacking_left
 		_close_sfx.global_position.x = 640
 		_close_sfx.play()
