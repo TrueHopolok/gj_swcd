@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://2c7o16jntr3o"]
+[gd_scene load_steps=10 format=3 uid="uid://2c7o16jntr3o"]
 
 [ext_resource type="ButtonGroup" uid="uid://dg5wecnyarym2" path="res://objects/double_doors/doors_group.tres" id="1_3am3k"]
 [ext_resource type="Script" uid="uid://benyjuon1ddpd" path="res://objects/double_doors/double_doors.gd" id="1_pinfa"]
+[ext_resource type="Texture2D" uid="uid://erq2ufbune51" path="res://assets/house/DoubleDoors/DoubleDoorsBusy.png" id="2_i22s7"]
 [ext_resource type="Texture2D" uid="uid://jtvohulrxdwc" path="res://assets/house/DoubleDoors/DoubleDoors.png" id="2_mhvgt"]
 [ext_resource type="AudioStream" uid="uid://lh7phqjlef5u" path="res://audio/sfx/Steps.mp3" id="3_mhvgt"]
 [ext_resource type="Script" uid="uid://b24b53wmb16x2" path="res://objects/spatial_audio/spatial_audio.gd" id="4_hfyjo"]
@@ -16,6 +17,13 @@ script = ExtResource("1_pinfa")
 position = Vector2(320, 180)
 scale = Vector2(2, 2.25)
 texture = ExtResource("2_mhvgt")
+flip_h = true
+
+[node name="Busy" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(320, 180)
+scale = Vector2(2, 2.25)
+texture = ExtResource("2_i22s7")
 flip_h = true
 
 [node name="LeftDoor" type="Button" parent="."]
