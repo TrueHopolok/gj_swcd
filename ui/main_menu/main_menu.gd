@@ -19,6 +19,7 @@ var config: ConfigFile = ConfigFile.new()
 
 func _ready() -> void:
 	$Difficulties/Hints/ToggleHints.button_pressed = Global.hints_enabled
+	config.load(CFG_PATH)
 	toggle_hints.button_pressed = config.get_value("Gameplay", "Hints", true)
 	
 func read_config():
@@ -65,6 +66,8 @@ func _on_medium_pressed() -> void:
 
 func _on_hint_button_toggled(toggled_on: bool) -> void:
 	Global.hints_enabled = toggled_on
+	config.set_value("Gameplay", "Hints", toggled_on)
+	save_config()
 
 
 func _on_spin_pressed() -> void:
